@@ -63,12 +63,13 @@ const iconMap: Record<string, LucideIcon> = {
   GraduationCap,
 }
 
-const variantWidths: Record<CardGridProps['variant'], string> = {
-  explore: 'w-[312px]',
-  accolade: 'w-[340px]',
-  partner: 'w-[200px]',
-  assertion: 'w-[380px]',
-  team: 'w-[288px]',
+// Responsive column counts per variant (cards are w-full and fill the grid cell)
+const variantGridCols: Record<CardGridProps['variant'], string> = {
+  explore: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
+  accolade: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
+  partner: 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7',
+  assertion: 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3',
+  team: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
 }
 
 const cinematic: [number, number, number, number] = [0.22, 1, 0.36, 1]
@@ -90,7 +91,7 @@ function ExploreCard({
       onClick={() => onClick?.(item)}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.45, ease: cinematic }}
-      className="w-[312px] bg-ivory border border-wheat/60 overflow-hidden cursor-pointer group"
+      className="w-full bg-ivory border border-wheat/60 overflow-hidden cursor-pointer group"
       style={{ boxShadow: '0 1px 2px rgba(31, 41, 36, 0.06)' }}
     >
       <div className="relative h-[214px] overflow-hidden bg-sage-light/30">
@@ -133,7 +134,7 @@ function ExploreCard({
   )
 }
 
-function AccoladeCard({
+export function AccoladeCard({
   item,
   onClick,
 }: {
@@ -145,7 +146,7 @@ function AccoladeCard({
       onClick={() => onClick?.(item)}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.45, ease: cinematic }}
-      className="w-[340px] bg-ivory border border-wheat/60 overflow-hidden cursor-pointer group"
+      className="w-full bg-ivory border border-wheat/60 overflow-hidden cursor-pointer group"
       style={{ boxShadow: '0 1px 2px rgba(31, 41, 36, 0.06)' }}
     >
       <div className="relative h-[240px] overflow-hidden bg-sage-light/30">
@@ -189,7 +190,7 @@ function PartnerCard({ item }: { item: PartnerItem }) {
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.45, ease: cinematic }}
-      className="w-[200px] bg-ivory border border-wheat/60 p-4 flex flex-col items-center justify-center gap-3 group cursor-default"
+      className="w-full bg-ivory border border-wheat/60 p-4 flex flex-col items-center justify-center gap-3 group cursor-default"
       style={{ boxShadow: '0 1px 2px rgba(31, 41, 36, 0.06)' }}
     >
       <div className="w-16 h-16 rounded-full bg-wheat/40 flex items-center justify-center overflow-hidden">
@@ -227,7 +228,7 @@ function AssertionCard({
       onClick={() => onClick?.(item)}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.45, ease: cinematic }}
-      className="w-[380px] bg-ivory border border-wheat/60 overflow-hidden cursor-pointer group"
+      className="w-full bg-ivory border border-wheat/60 overflow-hidden cursor-pointer group"
       style={{ boxShadow: '0 1px 2px rgba(31, 41, 36, 0.06)' }}
     >
       <div className="relative h-[200px] overflow-hidden bg-forest/5">
@@ -284,7 +285,7 @@ function TeamCard({
       onClick={() => onClick?.(item)}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.45, ease: cinematic }}
-      className="w-[288px] bg-ivory border border-wheat/60 overflow-hidden cursor-pointer group"
+      className="w-full bg-ivory border border-wheat/60 overflow-hidden cursor-pointer group"
       style={{ boxShadow: '0 1px 2px rgba(31, 41, 36, 0.06)' }}
     >
       <div className="relative h-[320px] overflow-hidden bg-sage-light/20">
@@ -329,7 +330,7 @@ export default function CardGrid({
   items,
   onItemClick,
 }: CardGridProps) {
-  const widthClass = variantWidths[variant]
+  const gridCols = variantGridCols[variant]
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderCard = (item: any, index: number) => {
@@ -375,12 +376,8 @@ export default function CardGrid({
   }
 
   return (
-    <div className="flex flex-wrap gap-6 justify-start">
-      {items.map((item, index) => (
-        <div key={item?.id ?? index} className={widthClass}>
-          {renderCard(item, index)}
-        </div>
-      ))}
+    <div className={`grid ${gridCols} gap-6`}>
+      {items.map((item, index) => renderCard(item, index))}
     </div>
   )
 }

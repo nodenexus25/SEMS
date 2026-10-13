@@ -14,32 +14,22 @@ const buildMegaMenuGroups = (): MegaMenuGroup[] => {
   const base = schoolData.quickLinkGroups
   const about = base.find((g) => g.id === 'ql1')!
   const school = base.find((g) => g.id === 'ql2')!
-  const noteworthy = base.find((g) => g.id === 'ql3')!
   const admission = base.find((g) => g.id === 'ql4')!
   const more = base.find((g) => g.id === 'ql5')!
 
-  const international: MegaMenuGroup = {
-    id: 'international',
-    title: 'International',
-    links: [
-      { id: 'intl-1', label: 'Global Outlook', href: '/about#international' },
-      { id: 'intl-2', label: 'Pen-Pal Program', href: '/about#international' },
-      { id: 'intl-3', label: 'Model UN Club', href: '/academics#co-curricular' },
-      { id: 'intl-4', label: 'GK & Current Affairs', href: '/academics' },
-    ],
-  }
-
+  // Co-curricular, Happenings & Contact stay visible in the navbar but their
+  // links are intentionally unlinked (href "#") for now.
   const cocurricular: MegaMenuGroup = {
     id: 'cocurricular',
     title: 'Co-curricular',
     links: more.links
       .filter((l) => l.id === 'q51')
       .concat([
-        { id: 'cc-1', label: 'Sports & Athletics', href: '/academics#co-curricular' },
-        { id: 'cc-2', label: 'NCC & Scouts', href: '/academics#co-curricular' },
-        { id: 'cc-3', label: 'Godavari Harit Sena', href: '/academics#co-curricular' },
-        { id: 'cc-4', label: 'Clubs & Societies', href: '/academics#co-curricular' },
-        { id: 'cc-5', label: 'Cultural Calendar', href: '/happenings' },
+        { id: 'cc-1', label: 'Sports & Athletics', href: '#' },
+        { id: 'cc-2', label: 'NCC & Scouts', href: '#' },
+        { id: 'cc-3', label: 'Godavari Harit Sena', href: '#' },
+        { id: 'cc-4', label: 'Clubs & Societies', href: '#' },
+        { id: 'cc-5', label: 'Cultural Calendar', href: '#' },
       ]),
   }
 
@@ -49,10 +39,10 @@ const buildMegaMenuGroups = (): MegaMenuGroup[] => {
     links: school.links
       .filter((l) => l.id === 'q26')
       .concat([
-        { id: 'hap-1', label: 'Latest News', href: '/happenings' },
-        { id: 'hap-2', label: 'Events Calendar', href: '/happenings' },
+        { id: 'hap-1', label: 'Latest News', href: '#' },
+        { id: 'hap-2', label: 'Events Calendar', href: '#' },
         { id: 'hap-3', label: 'Gallery', href: '/gallery' },
-        { id: 'hap-4', label: 'Annual Day', href: '/happenings' },
+        { id: 'hap-4', label: 'Annual Day', href: '#' },
       ]),
   }
 
@@ -62,12 +52,12 @@ const buildMegaMenuGroups = (): MegaMenuGroup[] => {
     links: more.links
       .filter((l) => ['q53', 'q54', 'q55'].includes(l.id))
       .concat([
-        { id: 'cnt-1', label: 'Reach Us', href: '/contact' },
-        { id: 'cnt-2', label: 'Campus Map', href: '/contact' },
+        { id: 'cnt-1', label: 'Reach Us', href: '#' },
+        { id: 'cnt-2', label: 'Campus Map', href: '#' },
       ]),
   }
 
-  return [about, school, noteworthy, international, admission, cocurricular, happenings, contact]
+  return [about, school, admission, cocurricular, happenings, contact]
 }
 
 function Navbar() {

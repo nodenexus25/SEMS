@@ -6,11 +6,11 @@ const img = (prompt: string, size = 'landscape_16_9') =>
 export const schoolData: SchoolInfo = {
   name: 'Sanjivani English Medium School',
   shortName: 'SEMS',
-  tagline: 'Rooted in heritage · Rising with tomorrow',
+  tagline: 'There is a bright child in every child.',
   trust: 'Sanjivani Education, Agricultural and Rural Development Trust',
   establishedYear: 1978,
   address: {
-    line1: 'Sanjivani Campus, Near Godavari Ghat',
+    line1: 'Sanjivani Campus, Sahajanandnagar',
     city: 'Kopargaon',
     state: 'Maharashtra',
     country: 'India',
@@ -136,9 +136,71 @@ export const schoolData: SchoolInfo = {
     },
   ],
   vision:
-    'To be India\u2019s most trusted bridge between rural roots and global opportunity — empowering young minds from Kopargaon taluka and beyond with character, competence and compassion.',
+    'At Sanjivani English Medium School, we envision an educational environment where every child is inspired to discover their potential, nurture their talents, develop strong values, and emerge as a confident, compassionate, responsible, and successful global citizen.',
+  visionFull:
+    'At Sanjivani English Medium School, we envision an educational environment where every child is inspired to discover their potential, nurture their talents, develop strong values, and emerge as a confident, compassionate, responsible, and successful global citizen.\n\nWe believe that education is not merely the acquisition of knowledge but a lifelong journey of discovery, character building, creativity, and transformation. Our vision is to provide quality education at affordable fees, ensuring that every child receives equal opportunities to learn, grow, dream, and achieve, irrespective of their background.\n\nGuided by the educational vision and legacy of Late Hon. Shankarraoji Kolhe Saheb, and under the valuable guidance and mentorship of Hon. Mrs. Renukatai Vivekbhaiya Kolhe Ma\u2019am, we strive to create a learning community that combines academic excellence with moral values, discipline, innovation, sportsmanship, and social responsibility.\n\nWe aspire to be recognised as one of the leading educational institutions in Ahilyanagar district, setting high standards in teaching, learning, student development, and institutional excellence. Through modern teaching methodologies, technology-enabled classrooms, experiential learning, sports, cultural activities, and opportunities for creative expression, we endeavour to make learning meaningful, joyful, and future-oriented.\n\nAt Sanjivani, every child is valued as a unique individual. We seek to identify each learner\u2019s strengths, support individual learning needs, encourage curiosity, and develop essential life skills such as critical thinking, communication, collaboration, leadership, and problem-solving. We aim to create an atmosphere where students feel safe, respected, motivated, and empowered to express themselves freely and pursue their aspirations with confidence.\n\nWe believe that true education develops not only intelligent minds but also kind hearts and responsible citizens. Therefore, we emphasise honesty, integrity, respect, empathy, environmental awareness, patriotism, and respect for diversity. We encourage our students to become individuals who contribute positively to their families, society, nation, and the world.\n\nOur commitment extends beyond classrooms. We seek to build a strong partnership among the school, parents, teachers, and the community, recognising that the holistic development of every child is a shared responsibility. By continuously improving our educational practices and embracing new opportunities, we aspire to prepare our learners for the challenges and possibilities of an ever-changing world.\n\nOur ultimate vision is to ignite young minds, inspire lifelong learning, empower every child, and transform dreams into achievements.\n\nAt Sanjivani English Medium School, we do not simply educate students for examinations; we prepare them for life. We nurture potential, build character, create opportunities, and empower every child to become the best version of themselves.\n\nSanjivani English Medium School \u2014 Nurturing Potential, Inspiring Excellence, Transforming Lives.',
   mission:
-    'Habituate excellence through a balanced curriculum, dedicated mentorship, and deep roots in Maharashtra\u2019s agro-cultural ethos. We teach the child, not just the subject.',
+    'Empowering Every Child with Knowledge, Values, Skills, and Confidence to Succeed in Life.',
+  missionIntro:
+    'At Sanjivani English Medium School, our mission is to provide quality, inclusive, and affordable education that nurtures the intellectual, physical, emotional, social, and moral development of every child. We are committed to creating a safe, supportive, stimulating, and child-centred learning environment where every learner is encouraged to explore, question, innovate, and achieve their fullest potential.\n\nInspired by the educational vision and legacy of Late Hon. Shankarraoji Kolhe Saheb, and guided by the valuable mentorship of Hon. Mrs. Renukatai Vivekbhaiya Kolhe Ma\u2019am, we strive to make meaningful education accessible to all and to develop individuals who are academically competent, ethically grounded, socially responsible, and prepared for the challenges of the future.',
+  missionCommitments: [
+    {
+      id: 'mc1',
+      title: 'Academic Excellence',
+      description:
+        'To deliver strong academic foundations through effective teaching methodologies, conceptual understanding, experiential learning, and continuous assessment, enabling students to achieve excellence in academics and competitive examinations.',
+    },
+    {
+      id: 'mc2',
+      title: 'Holistic Child Development',
+      description:
+        'To nurture every dimension of a child\u2019s personality by providing balanced opportunities in academics, sports, arts, cultural activities, leadership, communication, and creative expression.',
+    },
+    {
+      id: 'mc3',
+      title: 'Inclusive and Affordable Education',
+      description:
+        'To ensure that every child receives opportunities to learn, grow, and succeed by maintaining a commitment to quality education at affordable fees, while respecting individual abilities, interests, backgrounds, and learning needs.',
+    },
+    {
+      id: 'mc4',
+      title: 'Character Building and Values',
+      description:
+        'To instil honesty, integrity, discipline, empathy, respect, responsibility, patriotism, and compassion, shaping students into individuals who make ethical decisions and contribute positively to society.',
+    },
+    {
+      id: 'mc5',
+      title: 'Innovation and Future Readiness',
+      description:
+        'To integrate appropriate technology, digital literacy, critical thinking, problem-solving, collaboration, and creativity into learning, preparing students to adapt confidently to a rapidly changing world.',
+    },
+    {
+      id: 'mc6',
+      title: 'Sportsmanship and Healthy Living',
+      description:
+        'To encourage physical fitness, teamwork, perseverance, resilience, and a spirit of fair play through sports, yoga, physical education, and other health-promoting activities.',
+    },
+    {
+      id: 'mc7',
+      title: 'Environmental and Social Responsibility',
+      description:
+        'To develop awareness of environmental conservation, sustainable living, community welfare, and respect for cultural diversity, encouraging students to become responsible citizens of India and the world.',
+    },
+    {
+      id: 'mc8',
+      title: 'Partnership with Parents and Community',
+      description:
+        'To strengthen cooperation among teachers, parents, school management, and the community, recognising that the success and well-being of every child depend on shared commitment and collective effort.',
+    },
+    {
+      id: 'mc9',
+      title: 'Empowering Teachers and Continuous Improvement',
+      description:
+        'To promote professional growth, collaborative teaching, reflective practices, and continuous improvement, ensuring that our educators remain dedicated mentors who inspire, guide, and support every learner.',
+    },
+  ],
+  missionPromise:
+    'At Sanjivani English Medium School, we are committed to recognising the potential within every child, providing opportunities for individual growth, celebrating every achievement, and supporting every learner in overcoming challenges.\n\nWe strive to ensure that every student leaves our institution not only with knowledge and qualifications but also with confidence, compassion, integrity, resilience, and the determination to make a meaningful difference in the world.\n\nOur mission is to educate minds, nurture hearts, build character, and empower futures \u2014 because every child deserves the opportunity to shine.',
   emblemStory:
     'The Sanjivani emblem carries five elements: the lamp (vidya), the banyan (roots), the open palm (service), the wave (Godavari), and the farmer\u2019s horizon (the Sanjivani agricultural heritage). Together they remind every child that learning begins at home and ends in service.',
   coreValues: [
@@ -214,45 +276,44 @@ export const schoolData: SchoolInfo = {
   statsTabs: [
     {
       id: 't1',
-      label: 'Legacy',
+      label: 'Our Strength',
       items: [
-        { id: 's1', value: 47, suffix: '+', label: 'Years · Est. 1978' },
-        { id: 's2', value: 5000, suffix: '+', label: 'Alumni worldwide' },
-        { id: 's3', value: 120, suffix: '+', label: 'Faculty & staff' },
-        { id: 's4', value: 96, suffix: '%', label: 'Parent retention' },
-        { id: 's5', value: 42, suffix: '+', label: 'Villages served' },
-        { id: 's6', value: 10, suffix: '', label: 'K–10 grades' },
+        { id: 's1', value: 1000, suffix: '+', label: 'Students · Nursery to Class X' },
+        { id: 's2', value: 40, suffix: '', label: 'Teaching Staff' },
+        { id: 's3', value: 2, suffix: '', label: 'Office Staff' },
+        { id: 's4', value: 24, suffix: '', label: 'Support & Transport Team' },
+        { id: 's5', value: 13, suffix: '', label: 'Campus Facilities' },
+        { id: 's6', value: 100, suffix: '%', label: 'SSC Pass Rate · 2025 & 2026' },
       ],
     },
     {
       id: 't2',
-      label: 'Academics',
+      label: 'Academic Excellence',
       items: [
-        { id: 's1', value: 98, suffix: '%', label: 'Class X pass rate 2025' },
-        { id: 's2', value: 26, suffix: '', label: 'District merit ranks · 5 yr' },
-        { id: 's3', value: 1, suffix: ':14', label: 'Teacher : student ratio' },
-        { id: 's4', value: 8, suffix: '', label: 'Labs & libraries' },
-        { id: 's5', value: 3, suffix: '', label: 'Language streams' },
-        { id: 's6', value: 94, suffix: '%', label: 'Attendance · avg 2025' },
+        { id: 's1', value: 100, suffix: '%', label: 'SSC Pass Rate · March 2025' },
+        { id: 's2', value: 100, suffix: '%', label: 'SSC Pass Rate · May 2026' },
+        { id: 's3', value: 228, suffix: '', label: 'Olympiad Participants' },
+        { id: 's4', value: 41, suffix: '', label: 'Olympiad Medals · G 15 · S 13 · B 13' },
+        { id: 's5', value: 8, suffix: '', label: 'Academic Approach Pillars' },
+        { id: 's6', value: 4, suffix: '', label: 'Wings · Pre-Primary to Senior' },
       ],
     },
     {
       id: 't3',
-      label: 'Beyond Books',
+      label: 'Sports & Beyond',
       items: [
-        { id: 's1', value: 32, suffix: '+', label: 'Annual events & haats' },
-        { id: 's2', value: 14, suffix: '', label: 'Sports disciplines' },
-        { id: 's3', value: 9, suffix: '', label: 'Clubs & societies' },
-        { id: 's4', value: 2500, suffix: '+', label: 'Trees on campus' },
-        { id: 's5', value: 600, suffix: '+', label: 'NCC & Scout cadets' },
-        { id: 's6', value: 18, suffix: '', label: 'Community seva drives /yr' },
+        { id: 's1', value: 3, suffix: '', label: 'State Tchoukball Players' },
+        { id: 's2', value: 9, suffix: '', label: 'Division-Level Fencers' },
+        { id: 's3', value: 1, suffix: '', label: 'National Jump Rope Champion' },
+        { id: 's4', value: 1, suffix: '', label: 'District Chess Player · U-14' },
+        { id: 's5', value: 1, suffix: '', label: 'Annual Concert · Ecoria 2025–26' },
+        { id: 's6', value: 6, suffix: '+', label: 'Co-curricular Activities' },
       ],
     },
   ],
   exploreTiles: [
     { id: 'e1', eyebrow: 'Philosophy', title: 'Ye School Sochta Hai', description: 'The ideas that shape every classroom.', iconName: 'Lightbulb', href: '/about#philosophy', image: img('Open notebook with handwritten thoughts in Marathi and English, chai cup, pen, editorial still, warm ivory background', 'portrait_4_3') },
     { id: 'e2', eyebrow: 'Co-curricular', title: 'Sports & Athletics', description: 'Kho-kho, kabaddi, cricket, track.', iconName: 'Medal', href: '/academics#co-curricular', image: img('Rural Indian school kho-kho match in action, students in uniform, green field, afternoon light, editorial sports photo', 'portrait_4_3') },
-    { id: 'e3', eyebrow: 'Exchange', title: 'Internationalism', description: 'Pen-pals, GK clubs, Model UN.', iconName: 'Globe2', href: '/about#international', image: img('Globe, world map pinned with flags, notebook, editorial desk composition', 'portrait_4_3') },
     { id: 'e4', eyebrow: 'Seva', title: 'Godavari Harit Sena', description: 'Our river & farm stewardship club.', iconName: 'Trees', href: '/academics#co-curricular', image: img('Group of uniformed students planting saplings on a riverbank, monsoon sky, editorial documentary photo', 'portrait_4_3') },
     { id: 'e5', eyebrow: 'Cadets', title: 'NCC & Scouts', description: 'Discipline, parade, community camps.', iconName: 'Flag', href: '/academics#co-curricular', image: img('School NCC cadets in khaki uniform standing in formation, Indian tricolour flag, winter morning light, editorial', 'portrait_4_3') },
     { id: 'e6', eyebrow: 'Middle Wing', title: 'Classes VI–VIII', description: 'The bridge years — curiosity takes flight.', iconName: 'Layers', href: '/academics/middle', image: img('Middle school Indian students in science lab doing chemistry experiment, goggles, colourful chemicals, editorial classroom photo', 'portrait_4_3') },
@@ -285,9 +346,12 @@ export const schoolData: SchoolInfo = {
       title: 'About',
       links: [
         { id: 'q11', label: 'Who We Are', href: '/about' },
+        { id: 'q11a', label: 'Our Vision', href: '/about#vision' },
+        { id: 'q11b', label: 'Our Mission', href: '/about#mission' },
         { id: 'q12', label: 'School Emblem', href: '/about#emblem' },
         { id: 'q13', label: 'Our Philosophy', href: '/about#philosophy' },
         { id: 'q14', label: 'Leadership Board', href: '/about#leadership' },
+        { id: 'q14a', label: "Managing Trustee's Message", href: '/trustee-message' },
         { id: 'q15', label: "Principal's Message", href: '/principal-message' },
         { id: 'q16', label: 'Our Campuses', href: '/about#campuses' },
       ],
@@ -302,16 +366,6 @@ export const schoolData: SchoolInfo = {
         { id: 'q24', label: 'Senior Wing', href: '/academics/senior' },
         { id: 'q25', label: 'The Team', href: '/principal-message#team' },
         { id: 'q26', label: 'Happenings', href: '/happenings' },
-      ],
-    },
-    {
-      id: 'ql3',
-      title: 'Noteworthy',
-      links: [
-        { id: 'q31', label: 'Glory Galore', href: '/achievements' },
-        { id: 'q32', label: 'Success Trails', href: '/achievements#alumni' },
-        { id: 'q33', label: 'Trusted Voices', href: '/achievements#voices' },
-        { id: 'q34', label: 'School Results', href: '/achievements#results' },
       ],
     },
     {

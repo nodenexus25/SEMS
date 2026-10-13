@@ -174,24 +174,30 @@ const wings: AcademicsData['wings'] = {
 }
 
 const teachingApproach: AcademicsData['teachingApproach'] = [
-  { title: 'Bloom\u2019s Taxonomy Aligned', description: 'Every lesson plan is written against Remember–Understand–Apply–Analyze–Evaluate–Create. No classroom stops at "Remember".', iconName: 'Brain' },
-  { title: 'Small, Mixed-Ability Groups', description: 'Class size capped at 34. Every class is split into 4 colour groups for group work. Peer teaching is a weekly ritual.', iconName: 'Users2' },
-  { title: 'No Rote Culture', description: 'Science through practicals, Geography through maps & field visits, History through village elders & buildings.', iconName: 'Compass' },
-  { title: '100% Marathi Roots, English Wings', description: 'English fluency yes, mother tongue never. Every student writes their own diary in Marathi every Sunday.', iconName: 'Languages' },
-  { title: 'Remedial + Accelerated Both', description: 'Two parallel after-school support cells: Remedial for children who need catching up, Accelerated for gifted kids.', iconName: 'Gauge' },
-  { title: 'Teachers as Researchers', description: 'Every teacher does one action-research project a year on a child or a technique. Sanjivani has 14 published papers in Marathi shikshan journals.', iconName: 'GraduationCap' },
+  { title: 'Strong Academic Foundations', description: 'We focus on developing strong foundations in English, Mathematics, Environmental Studies, Science, Social Science, and other subjects according to the respective class curriculum. Special attention is given to conceptual clarity, language development, logical reasoning, reading habits, and effective communication.', iconName: 'BookOpen' },
+  { title: 'Student-Centred Teaching & Learning', description: 'Our teachers use interactive, activity-based, and experiential teaching methods to make learning meaningful and enjoyable. Classroom discussions, demonstrations, projects, practical activities, presentations, and collaborative learning encourage students to participate actively in the learning process.', iconName: 'Users' },
+  { title: 'Individual Attention & Academic Support', description: 'We recognise that every child learns differently. Our teachers strive to identify individual learning needs, monitor progress, provide appropriate guidance, and support students who require additional assistance. We also encourage advanced learners to explore their interests and extend their knowledge.', iconName: 'HandHeart' },
+  { title: 'Continuous Assessment & Progress Monitoring', description: 'Regular classwork, homework, periodic assessments, oral examinations, written tests, projects, and other appropriate evaluation methods help monitor student progress. Feedback is used to identify strengths, address learning gaps, and encourage continuous improvement.', iconName: 'ClipboardCheck' },
+  { title: 'Preparation for Competitive Examinations', description: 'We encourage students to develop reasoning ability, problem-solving skills, general awareness, and analytical thinking. Appropriate guidance and practice opportunities help interested students prepare for school-level competitions, Olympiads, and other age-appropriate academic challenges.', iconName: 'Trophy' },
+  { title: 'Technology-Enabled Learning', description: 'Where appropriate, digital resources, audio-visual presentations, educational videos, and interactive learning tools are used to enhance understanding and make classroom experiences more engaging.', iconName: 'Monitor' },
+  { title: 'Reading, Communication & Language Development', description: 'We encourage reading, vocabulary development, spoken English, creative writing, public speaking, storytelling, and presentation skills. These activities help students express their thoughts confidently and communicate effectively.', iconName: 'Languages' },
+  { title: 'Learning Beyond the Classroom', description: 'Education at Sanjivani extends beyond textbooks. Science activities, exhibitions, quizzes, educational visits, project work, cultural programmes, sports, and celebrations provide opportunities to connect classroom learning with real-life experiences.', iconName: 'Compass' },
 ]
 
 const facilities: AcademicsData['facilities'] = [
-  { name: 'STEM Block', description: 'Physics, Chemistry, Biology, Language, Mathematics, and two Computer labs, all air-conditioned.', iconName: 'Building2' },
-  { name: 'Libraries — Two Wings', description: 'Primary Library (4,500+) & Main Library (14,000+ books) with 3-language magazines & newspapers.', iconName: 'Library' },
-  { name: 'Arts & Cultural Block', description: 'Art studio, music room, dance hall, 300-seat Saraswati Sabhagriha auditorium with projector.', iconName: 'Palette' },
-  { name: 'Play & Athletics', description: '4-acre cinder athletics track, kho-kho & kabaddi courts, cricket pitch, volleyball, throwball, badminton.', iconName: 'Trophy' },
-  { name: 'Open Air Theatre', description: 'Seats 700 for Annual Day, Prize Distribution, Dasara Sangeet Sandhya and other events.', iconName: 'Drama' },
-  { name: 'Medical & Well-Being', description: 'Nurse-on-duty 8 am to 4 pm, 6-bed medical room, full-time student counsellor, ambulance on call.', iconName: 'HeartPulse' },
-  { name: 'Mid-Day Meal Kitchen', description: 'Trust-run Annapurna kitchen, 400+ meals cooked fresh on campus daily by our own 3 cooks.', iconName: 'Soup' },
-  { name: 'Balvatika & Farm', description: 'Children\u2019s garden, 2-acre learning farm, 2500+ trees, rainwater harvesting ponds.', iconName: 'Trees' },
-  { name: 'Secure Campus', description: 'Boundary wall, 44 CCTVs, women-only lady attendants for Pre-Primary, all staff police verified.', iconName: 'Shield' },
+  { name: 'Well-Equipped School Building', description: 'A well-maintained school building with facilities that support effective teaching and learning.', iconName: 'Building2' },
+  { name: 'Spacious & Ventilated Classrooms', description: 'Comfortable classrooms that provide a positive atmosphere for interactive and meaningful learning.', iconName: 'DoorOpen' },
+  { name: 'Safe Drinking Water', description: 'Clean and safe drinking water facilities for students and staff, ensuring good health and hygiene.', iconName: 'Droplets' },
+  { name: 'Computer Laboratory', description: 'A dedicated computer lab to develop students\u2019 digital literacy, computer skills, and technological awareness.', iconName: 'Monitor' },
+  { name: 'Science Laboratory', description: 'A well-equipped science lab that encourages practical learning, experimentation, observation, and scientific thinking.', iconName: 'FlaskConical' },
+  { name: 'Well-Stocked Library', description: 'A library with educational books and reading resources to cultivate reading habits, imagination, and knowledge.', iconName: 'Library' },
+  { name: 'Spacious Playground', description: 'A large playground that provides opportunities for outdoor games, sports, physical fitness, and team-building activities.', iconName: 'Trophy' },
+  { name: 'Special Activity Rooms', description: 'Dedicated spaces for co-curricular activities, creativity, and the development of students\u2019 talents and interests.', iconName: 'Palette' },
+  { name: 'Sports & Physical Education', description: 'Opportunities and facilities to encourage participation in various indoor and outdoor sports and physical activities.', iconName: 'Dumbbell' },
+  { name: 'Clean & Hygienic Campus', description: 'Well-maintained premises that promote cleanliness, hygiene, discipline, and healthy habits among all students.', iconName: 'Sparkles' },
+  { name: 'Safety & Security', description: 'CCTV surveillance and a focus on maintaining a secure, student-friendly, and safe school environment at all times.', iconName: 'Shield' },
+  { name: 'Transport Facilities', description: 'School bus services designed to support students\u2019 daily commute with responsible driving and safe travel.', iconName: 'Bus' },
+  { name: 'Essential Student Amenities', description: 'Necessary facilities and support services to make students\u2019 school experience comfortable, convenient, and enriching.', iconName: 'Wrench' },
 ]
 
 const academics: AcademicsData = { wings, teachingApproach, facilities }

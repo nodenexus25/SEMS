@@ -1,4 +1,5 @@
 import { motion, useInView } from 'framer-motion'
+import { Link, useNavigate } from 'react-router-dom'
 import { useRef, type ReactNode } from 'react'
 import {
   ArrowRight,
@@ -27,7 +28,6 @@ import CardGrid from '@/components/CardGrid'
 import StatsBand from '@/components/StatsBand'
 import TestimonialCarousel from '@/components/TestimonialCarousel'
 import Button from '@/components/Button'
-import type { AlumniItem } from '@/types/school'
 
 void team
 
@@ -70,70 +70,20 @@ const pillarBgClasses = [
   'bg-ivory',
 ]
 
-function AlumniCard({ item, delay }: { item: AlumniItem; delay: number }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, amount: 0.2 })
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.45, ease: cinematic, delay }}
-      className="bg-ivory border border-wheat/60 overflow-hidden flex flex-col md:flex-row min-h-[260px]"
-      style={{ boxShadow: '0 1px 2px rgba(31, 41, 36, 0.06)' }}
-    >
-      <div className="md:w-[240px] shrink-0 h-[220px] md:h-auto overflow-hidden bg-sage-light/20">
-        <img
-          src={item.portrait}
-          alt={item.name}
-          loading="lazy"
-          className="w-full h-full object-cover"
-        />
-      </div>
-      <div className="p-6 flex flex-col gap-3 flex-1">
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="bg-terracotta/10 text-terracotta px-3 py-1 text-[11px] tracking-editorial uppercase font-semibold">
-            Batch of {item.batch}
-          </span>
-          <span className="bg-forest/10 text-forest px-3 py-1 text-[11px] tracking-editorial uppercase font-semibold">
-            {item.role}
-          </span>
-        </div>
-        <p className="font-serifAlt text-xl leading-relaxed text-charcoal italic">
-          <span className="text-terracotta text-3xl leading-none mr-1 align-sub">
-            “
-          </span>
-          {item.quote}
-          <span className="text-terracotta text-3xl leading-none ml-1 align-text-top">
-            ”
-          </span>
-        </p>
-        <div className="mt-auto pt-4 border-t border-wheat/50">
-          <p className="font-serif text-xl leading-tight text-charcoal">
-            {item.name}
-          </p>
-          <p className="text-xs text-sage font-medium uppercase tracking-editorial mt-1">
-            {item.current}
-          </p>
-        </div>
-      </div>
-    </motion.div>
-  )
-}
-
 function EventCard({
   event,
   label,
   eyebrow,
   delay,
   icon: Icon,
+  onClick,
 }: {
   event: (typeof events)[number]
   label: string
   eyebrow: string
   delay: number
   icon: LucideIcon
+  onClick?: () => void
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.2 })
@@ -144,6 +94,7 @@ function EventCard({
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.45, ease: cinematic, delay }}
+      onClick={onClick}
       className="group bg-ivory border border-wheat/60 overflow-hidden cursor-pointer"
       style={{ boxShadow: '0 1px 2px rgba(31, 41, 36, 0.06)' }}
     >
@@ -203,23 +154,9 @@ function EventCard({
   )
 }
 
-function exploreClick(item: { href?: string }) {
-  if (item.href) {
-    window.location.href = item.href
-  }
-}
-
-function assertionClick(item: { exploreHref?: string }) {
-  if (item.exploreHref) {
-    window.location.href = item.exploreHref
-  }
-}
-
-function accoladeClick() {}
-
 export default function Home() {
+  const navigate = useNavigate()
   const pillars = schoolData.coreValues.slice(0, 4)
-  const featuredAlumni = achievements.alumni.slice(0, 3)
   const accoladesSample = achievements.accolades.slice(0, 12)
   const recentEvents = [...events]
     .sort((a, b) => (a.date < b.date ? 1 : -1))
@@ -313,17 +250,19 @@ export default function Home() {
               decoratedUnderline
             />
             <div className="shrink-0">
-              <a href="/about" className="btn-secondary">
+              <Link to="/about" className="btn-secondary">
                 Explore About Us
                 <ArrowRight size={16} strokeWidth={2} />
-              </a>
+              </Link>
             </div>
           </div>
 
           <CardGrid
             variant="assertion"
             items={schoolData.assertions}
-            onItemClick={assertionClick}
+            onItemClick={(item: { exploreHref?: string }) => {
+              if (item.exploreHref) navigate(item.exploreHref)
+            }}
           />
         </div>
       </SectionWrap>
@@ -387,26 +326,6 @@ export default function Home() {
         </div>
       </SectionWrap>
 
-      <SectionWrap delay={0.07} className="py-20 md:py-28 bg-ivory">
-        <div className="container-editorial">
-          <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-            <SectionHeading
-              eyebrow="Notable Alumni · Dignitaries"
-              title="Voices of Sanjivanis Who Walked These Corridors"
-              subtitle="From cardiologists to farmers, from principals to software engineers — the Sanjivani family extends across India and beyond. These are three of them."
-              align="center"
-              decoratedUnderline
-            />
-          </div>
-
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {featuredAlumni.map((alumnus, idx) => (
-              <AlumniCard key={alumnus.id} item={alumnus} delay={idx * 0.08} />
-            ))}
-          </div>
-        </div>
-      </SectionWrap>
-
       <SectionWrap delay={0.05} className="py-20 md:py-28 bg-cream">
         <div className="container-editorial">
           <div className="max-w-3xl mb-12 md:mb-16">
@@ -422,7 +341,9 @@ export default function Home() {
           <CardGrid
             variant="explore"
             items={schoolData.exploreTiles}
-            onItemClick={exploreClick}
+            onItemClick={(item: { href?: string }) => {
+              if (item.href) navigate(item.href)
+            }}
           />
         </div>
       </SectionWrap>
@@ -461,14 +382,14 @@ export default function Home() {
           <CardGrid
             variant="accolade"
             items={accoladesSample}
-            onItemClick={accoladeClick}
+            onItemClick={() => navigate('/achievements')}
           />
 
           <div className="mt-12 md:mt-16 flex justify-center">
-            <a href="/achievements" className="btn-primary">
+            <Link to="/achievements" className="btn-primary">
               All Accolades & Laurels
               <ArrowRight size={16} strokeWidth={2} />
-            </a>
+            </Link>
           </div>
         </div>
       </SectionWrap>
@@ -525,9 +446,7 @@ export default function Home() {
                 size="lg"
                 iconLeft={<MessageCircle size={18} strokeWidth={1.9} />}
                 iconRight={<ArrowRight size={16} strokeWidth={2} />}
-                onClick={() => {
-                  window.location.href = '/contact'
-                }}
+                onClick={() => navigate('/contact')}
                 className="shadow-editorial"
               >
                 Enquiry
@@ -536,9 +455,7 @@ export default function Home() {
                 variant="secondary"
                 size="lg"
                 iconLeft={<UserPlus size={18} strokeWidth={1.9} />}
-                onClick={() => {
-                  window.location.href = '/admission'
-                }}
+                onClick={() => navigate('/admission')}
                 className="shadow-editorial/40 !border-terracotta-soft !text-terracotta-soft hover:!bg-terracotta hover:!text-ivory hover:!border-terracotta"
               >
                 Admissions
@@ -614,6 +531,7 @@ export default function Home() {
                   label="Editorial · Recent"
                   delay={0.04}
                   icon={Award}
+                  onClick={() => navigate('/happenings')}
                 />
                 <EventCard
                   event={recentEvents[1]}
@@ -621,16 +539,17 @@ export default function Home() {
                   label="Memory · Archive"
                   delay={0.1}
                   icon={Calendar}
+                  onClick={() => navigate('/happenings')}
                 />
               </>
             )}
           </div>
 
           <div className="mt-12 md:mt-16 flex justify-center">
-            <a href="/happenings" className="btn-primary">
+            <Link to="/happenings" className="btn-primary">
               See All Happenings
               <ArrowRight size={16} strokeWidth={2} />
-            </a>
+            </Link>
           </div>
         </div>
       </SectionWrap>

@@ -105,7 +105,7 @@ export default function TestimonialCarousel({
   return (
     <div className="w-full py-14 md:py-20 bg-forest-deep text-ivory relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.06] pointer-events-none bg-[radial-gradient(circle_at_20%_20%,#B6583C_0%,transparent_60%),radial-gradient(circle_at_80%_80%,#E4D9B8_0%,transparent_60%)]" />
-      <div className="relative max-w-7xl mx-auto px-6 md:px-10">
+      <div className="relative container-editorial">
         <div className="mb-10 md:mb-14">
           <p className="text-xs uppercase tracking-editorial text-terracotta-soft mb-3 font-semibold">
             Trusted Voices

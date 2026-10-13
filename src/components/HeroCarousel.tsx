@@ -1,5 +1,6 @@
 import { forwardRef, useCallback, useEffect, useState } from 'react'
 import type { Ref } from 'react'
+import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react'
 import type { HeroSlide } from '@/types/school'
@@ -75,6 +76,16 @@ export default function HeroCarousel({
   const prev = useCallback(() => goTo(index - 1), [index, goTo])
   const next = useCallback(() => goTo(index + 1), [index, goTo])
 
+  // Preload all hero images into the browser cache so carousel slide changes
+  // never abort in-flight image requests (causes net::ERR_ABORTED in console).
+  useEffect(() => {
+    if (total === 0) return
+    slides.forEach((slide) => {
+      const preload = new Image()
+      preload.src = slide.image
+    })
+  }, [slides, total])
+
   useEffect(() => {
     if (paused || total <= 1) return
     const id = window.setInterval(() => {
@@ -109,6 +120,7 @@ export default function HeroCarousel({
             alt={current.title}
             className="w-full h-full object-cover select-none"
             draggable={false}
+            decoding="async"
           />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_20%,rgba(47,82,51,0.3),transparent_55%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_90%,rgba(182,88,60,0.28),transparent_55%)]" />
@@ -118,7 +130,7 @@ export default function HeroCarousel({
 
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-wheat/50 to-transparent pointer-events-none" />
 
-          <div className="relative z-10 h-full max-w-7xl mx-auto px-6 md:px-10 lg:px-16 flex flex-col justify-center">
+          <div className="relative z-10 h-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col justify-center">
             <div className="max-w-3xl">
               {current.tagline && (
                 <motion.div
@@ -164,8 +176,8 @@ export default function HeroCarousel({
                   transition={{ duration: 0.7, delay: 0.6, ease: cinematic }}
                   className="flex flex-wrap items-center gap-4"
                 >
-                  <a
-                    href={current.ctaHref ?? '#'}
+                  <Link
+                    to={current.ctaHref ?? '/'}
                     className="group relative inline-flex items-center gap-2.5 rounded-full bg-terracotta text-ivory px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] shadow-[0_20px_50px_-20px_rgba(182,88,60,0.6)] hover:bg-terracotta-soft transition-all duration-500 ease-cinematic hover:-translate-y-0.5 overflow-hidden"
                   >
                     <span className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(228,217,184,0.25),transparent_60%)]" />
@@ -174,7 +186,7 @@ export default function HeroCarousel({
                       {current.ctaLabel}
                       <ArrowUpRight className="w-4 h-4 transition-transform duration-450 ease-cinematic group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </span>
-                  </a>
+                  </Link>
                   <span className="text-[10px] tracking-[0.22em] uppercase text-ivory/50">
                     Scroll ↓ to explore
                   </span>

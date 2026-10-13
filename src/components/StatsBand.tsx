@@ -90,7 +90,7 @@ export default function StatsBand({ tabs }: StatsBandProps) {
       ref={containerRef}
       className="w-full bg-gradient-to-b from-ivory-deep via-wheat/40 to-ivory border-y border-wheat/60 py-14 md:py-20"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+      <div className="container-editorial">
         <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 md:mb-14">
           {tabs.map((tab, i) => {
             const isActive = i === safeIndex

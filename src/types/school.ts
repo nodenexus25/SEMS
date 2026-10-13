@@ -76,6 +76,12 @@ export interface SocialLink {
   href: string
 }
 
+export interface MissionCommitment {
+  id: string
+  title: string
+  description: string
+}
+
 export interface SchoolInfo {
   name: string
   shortName: string
@@ -108,7 +114,11 @@ export interface SchoolInfo {
   website: string
   heroSlides: HeroSlide[]
   vision: string
+  visionFull: string
   mission: string
+  missionIntro: string
+  missionCommitments: MissionCommitment[]
+  missionPromise: string
   emblemStory: string
   coreValues: CoreValue[]
   assertions: AssertionItem[]
@@ -184,6 +194,9 @@ export interface TeamMember {
   quote: string
   portrait: string
   sort: number
+  messageTagline?: string
+  messageBody?: string
+  messageSignature?: string
 }
 
 export interface FAQItem {
