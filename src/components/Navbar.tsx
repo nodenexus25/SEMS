@@ -1,12 +1,9 @@
 import { useMemo, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, X, ChevronDown, GraduationCap, Sparkles } from 'lucide-react'
-import { AnimatePresence, motion } from 'framer-motion'
 import { schoolData } from '@/data/school.data'
 import type { QuickLinkGroup } from '@/types/school'
 import useScrollPosition from '@/hooks/useScrollPosition'
-
-const CINEMATIC_EASING: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
 type MegaMenuGroup = QuickLinkGroup
 
@@ -24,6 +21,7 @@ const buildMegaMenuGroups = (): MegaMenuGroup[] => {
     title: 'Co-curricular',
     links: more.links
       .filter((l) => l.id === 'q51')
+      .map((l) => ({ ...l, href: '#' }))
       .concat([
         { id: 'cc-1', label: 'Sports & Athletics', href: '#' },
         { id: 'cc-2', label: 'NCC & Scouts', href: '#' },
@@ -38,6 +36,7 @@ const buildMegaMenuGroups = (): MegaMenuGroup[] => {
     title: 'Happenings',
     links: school.links
       .filter((l) => l.id === 'q26')
+      .map((l) => ({ ...l, href: '#' }))
       .concat([
         { id: 'hap-1', label: 'Latest News', href: '#' },
         { id: 'hap-2', label: 'Events Calendar', href: '#' },
@@ -51,6 +50,7 @@ const buildMegaMenuGroups = (): MegaMenuGroup[] => {
     title: 'Contact',
     links: more.links
       .filter((l) => ['q53', 'q54', 'q55'].includes(l.id))
+      .map((l) => ({ ...l, href: '#' }))
       .concat([
         { id: 'cnt-1', label: 'Reach Us', href: '#' },
         { id: 'cnt-2', label: 'Campus Map', href: '#' },
@@ -107,7 +107,7 @@ function Navbar() {
 
           <nav className="hidden min-[901px]:flex items-center h-full">
             <ul className="flex items-center h-full gap-1">
-              {megaGroups.map((group, idx) => (
+              {megaGroups.map((group) => (
                 <li
                   key={group.id}
                   className="relative h-full"
@@ -129,44 +129,36 @@ function Navbar() {
                     />
                   </button>
 
-                  <AnimatePresence>
-                    {openGroup === group.id && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10, filter: 'blur(6px)' }}
-                        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                        exit={{ opacity: 0, y: 10, filter: 'blur(6px)' }}
-                        transition={{
-                          duration: 0.32,
-                          ease: CINEMATIC_EASING,
-                          delay: idx * 0.01,
-                        }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[296px]"
-                      >
-                        <div className="glass-ivory shadow-editorial rounded-sm p-4 relative overflow-hidden">
-                          <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-terracotta/6 blur-2xl pointer-events-none" />
-                          <p className="relative text-[10px] tracking-[0.22em] uppercase text-terracotta mb-3">
-                            {group.title}
-                          </p>
-                          <ul className="relative space-y-0.5">
-                            {group.links.map((link) => (
-                              <li key={link.id}>
-                                <Link
-                                  to={link.href}
-                                  className="group/link block px-3 py-2.5 text-sm text-charcoal-soft/90 rounded-sm transition-all duration-450 ease-cinematic relative overflow-hidden"
-                                  onClick={() => setOpenGroup(null)}
-                                >
-                                  <span className="absolute inset-y-0 left-0 w-0 bg-terracotta/90 transition-all duration-450 ease-cinematic group-hover/link:w-[3px]" />
-                                  <span className="relative pl-0 group-hover/link:pl-2 transition-all duration-450 ease-cinematic group-hover/link:text-terracotta">
-                                    {link.label}
-                                  </span>
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div
+                    className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[296px] transition-all duration-300 ease-out ${
+                      openGroup === group.id
+                        ? 'opacity-100 translate-y-0 blur-0 pointer-events-auto'
+                        : 'opacity-0 translate-y-2.5 blur-md pointer-events-none'
+                    }`}
+                  >
+                    <div className="glass-ivory shadow-editorial rounded-sm p-4 relative overflow-hidden">
+                      <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-terracotta/6 blur-2xl pointer-events-none" />
+                      <p className="relative text-[10px] tracking-[0.22em] uppercase text-terracotta mb-3">
+                        {group.title}
+                      </p>
+                      <ul className="relative space-y-0.5">
+                        {group.links.map((link) => (
+                          <li key={link.id}>
+                            <Link
+                              to={link.href}
+                              className="group/link block px-3 py-2.5 text-sm text-charcoal-soft/90 rounded-sm transition-all duration-450 ease-cinematic relative overflow-hidden"
+                              onClick={() => setOpenGroup(null)}
+                            >
+                              <span className="absolute inset-y-0 left-0 w-0 bg-terracotta/90 transition-all duration-450 ease-cinematic group-hover/link:w-[3px]" />
+                              <span className="relative pl-0 group-hover/link:pl-2 transition-all duration-450 ease-cinematic group-hover/link:text-terracotta">
+                                {link.label}
+                              </span>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -194,25 +186,18 @@ function Navbar() {
         </div>
       </header>
 
-      <AnimatePresence>
-        {drawerOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, ease: CINEMATIC_EASING }}
-              className="fixed inset-0 z-[60] bg-charcoal/40 backdrop-blur-sm min-[901px]:hidden"
-              onClick={closeDrawer}
-            />
+      <div
+        className={`fixed inset-0 z-[60] bg-charcoal/40 backdrop-blur-sm min-[901px]:hidden transition-opacity duration-300 ease-out ${
+          drawerOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={closeDrawer}
+      />
 
-            <motion.aside
-              initial={{ x: '-100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '-100%' }}
-              transition={{ duration: 0.45, ease: CINEMATIC_EASING }}
-              className="fixed top-0 left-0 bottom-0 z-[70] w-[85%] max-w-[360px] bg-ivory shadow-editorial min-[901px]:hidden flex flex-col"
-            >
+      <aside
+        className={`fixed top-0 left-0 bottom-0 z-[70] w-[85%] max-w-[360px] bg-ivory shadow-editorial min-[901px]:hidden flex flex-col transition-transform duration-450 ease-cinematic ${
+          drawerOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
               <div className="h-[67px] px-5 flex items-center justify-between border-b border-wheat/40">
                 <Link to="/" onClick={closeDrawer} className="flex items-center gap-3">
                   <div className="h-10 w-10 rounded-sm bg-forest flex items-center justify-center text-ivory font-serif italic text-lg shadow-soft">
@@ -278,10 +263,7 @@ function Navbar() {
                   Admission Enquiry
                 </Link>
               </div>
-            </motion.aside>
-          </>
-        )}
-      </AnimatePresence>
+            </aside>
     </>
   )
 }

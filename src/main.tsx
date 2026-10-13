@@ -1,4 +1,4 @@
-import { StrictMode, useEffect } from 'react'
+import { StrictMode, Suspense, lazy, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
   RouterProvider,
@@ -7,7 +7,6 @@ import {
   Outlet,
   useLocation,
 } from 'react-router-dom'
-import { AnimatePresence, motion } from 'framer-motion'
 import './index.css'
 
 import Navbar from '@/components/Navbar'
@@ -15,25 +14,34 @@ import Footer from '@/components/Footer'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
 import StickySideCTA from '@/components/StickySideCTA'
 
-import Home from '@/pages/Home'
-import About from '@/pages/About'
-import PrincipalMessage from '@/pages/PrincipalMessage'
-import TrusteeMessage from '@/pages/TrusteeMessage'
-import Academics from '@/pages/Academics'
-import WingPage from '@/pages/academics/WingPage'
-import Happenings from '@/pages/Happenings'
-import Achievements from '@/pages/Achievements'
-import Admission from '@/pages/Admission'
-import Gallery from '@/pages/Gallery'
-import Contact from '@/pages/Contact'
-import NotFound from '@/pages/NotFound'
+// Route-level code splitting: each page is a separate chunk so the initial
+// bundle stays small and the first paint happens fast (no blank screen).
+const Home = lazy(() => import('@/pages/Home'))
+const About = lazy(() => import('@/pages/About'))
+const PrincipalMessage = lazy(() => import('@/pages/PrincipalMessage'))
+const TrusteeMessage = lazy(() => import('@/pages/TrusteeMessage'))
+const Academics = lazy(() => import('@/pages/Academics'))
+const WingPage = lazy(() => import('@/pages/academics/WingPage'))
+const Happenings = lazy(() => import('@/pages/Happenings'))
+const Achievements = lazy(() => import('@/pages/Achievements'))
+const Admission = lazy(() => import('@/pages/Admission'))
+const Gallery = lazy(() => import('@/pages/Gallery'))
+const Contact = lazy(() => import('@/pages/Contact'))
+const NotFound = lazy(() => import('@/pages/NotFound'))
 
-const CINEMATIC_EASING: [number, number, number, number] = [0.22, 1, 0.36, 1]
-
-const pageVariants = {
-  initial: { opacity: 0, y: 12 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -12 },
+// Minimal page-loading fallback so the user never sees a blank white screen
+// while a route chunk is being downloaded.
+function PageLoader() {
+  return (
+    <div className="min-h-[60vh] flex items-center justify-center">
+      <div className="flex flex-col items-center gap-3 text-forest/60">
+        <div className="h-9 w-9 rounded-full border-2 border-forest/20 border-t-forest animate-spin" />
+        <span className="text-xs tracking-[0.25em] uppercase font-inter">
+          Loading…
+        </span>
+      </div>
+    </div>
+  )
 }
 
 const buildTitleMap = (): Record<string, string> => ({
@@ -67,18 +75,11 @@ function PageFrame() {
     <div className="min-h-screen bg-ivory flex flex-col">
       <Navbar />
       <main className="flex-1 flex flex-col pt-[67px]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={location.key}
-            variants={pageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.45, ease: CINEMATIC_EASING }}
-          >
+        <div key={location.pathname} className="page-fade-in">
+          <Suspense fallback={<PageLoader />}>
             <Outlet />
-          </motion.div>
-        </AnimatePresence>
+          </Suspense>
+        </div>
       </main>
       <StickySideCTA />
       <WhatsAppFloat />
@@ -96,7 +97,9 @@ const router = createBrowserRouter([
       <div className="min-h-screen bg-ivory flex flex-col">
         <Navbar />
         <main className="flex-1 pt-[67px]">
-          <NotFound />
+          <Suspense fallback={<PageLoader />}>
+            <NotFound />
+          </Suspense>
         </main>
         <Footer />
       </div>
