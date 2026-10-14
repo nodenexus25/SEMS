@@ -231,7 +231,7 @@ export default function Contact() {
                   >
                     <defs>
                       <linearGradient id="landGrad" x1="0" x2="0" y1="0" y2="1">
-                        <stop offset="0%" stopColor="#F5F1E8" />
+                        <stop offset="0%" stopColor="#F3F6F9" />
                         <stop offset="100%" stopColor="#EAE3D1" />
                       </linearGradient>
                       <linearGradient id="riverGrad" x1="0" x2="1" y1="0" y2="0">

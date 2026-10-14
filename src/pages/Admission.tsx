@@ -40,9 +40,7 @@ const admissionHeroSlide = {
   title: 'Admissions 2026-27 Open',
   subtitle: 'Pre-Primary to Class X · Limited seats',
   tagline: 'Apply now · Kopargaon',
-  image: img(
-    'Cinematic 16:9 editorial banner, close-up of a young student in school uniform holding a book with folded hands, warm morning classroom light, bokeh of chalkboard behind, no logos, peaceful and hopeful tone, Indian school admissions season, Maharashtra rural aesthetic',
-  ),
+  image: '/1000327223.jpg',
   ctaLabel: 'Begin your journey',
   ctaHref: '#register',
 }
@@ -149,7 +147,7 @@ function Counter({ value, suffix = '', label }: { value: number; suffix?: string
 
   return (
     <div className="flex flex-col items-center text-center">
-      <span ref={ref} className="font-serif text-5xl md:text-6xl text-terracotta leading-none">
+      <span ref={ref} className="font-serif text-5xl md:text-6xl text-saffron leading-none">
         {display}
         {suffix}
       </span>
@@ -201,7 +199,7 @@ function Admission() {
                 <a
                   key={item.id}
                   href={item.href}
-                  className="shrink-0 chip hover:border-terracotta hover:text-terracotta transition-colors duration-300 ease-cinematic"
+                  className="shrink-0 chip hover:border-saffron hover:text-saffron transition-colors duration-300 ease-cinematic"
                 >
                   {item.label}
                 </a>
@@ -215,7 +213,7 @@ function Admission() {
           <aside className="hidden lg:block lg:col-span-3">
             <div className="sticky top-24">
               <div className="bg-cream border border-wheat/60 p-6 shadow-soft">
-                <p className="text-[10px] tracking-editorial uppercase text-terracotta mb-4">
+                <p className="text-[10px] tracking-editorial uppercase text-saffron mb-4">
                   On this page
                 </p>
                 <nav className="flex flex-col">
@@ -226,7 +224,7 @@ function Admission() {
                       className="group flex items-center justify-between py-2.5 border-b border-wheat/40 last:border-b-0 text-sm text-charcoal-soft hover:text-forest transition-colors duration-300 ease-cinematic"
                     >
                       <span className="flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-wheat group-hover:bg-terracotta transition-colors duration-300 ease-cinematic" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-wheat group-hover:bg-saffron transition-colors duration-300 ease-cinematic" />
                         {item.label}
                       </span>
                       <ChevronRight
@@ -242,7 +240,7 @@ function Admission() {
                   </p>
                   <a
                     href={`tel:${schoolData.phones.admission?.replace(/\s+/g, '') ?? ''}`}
-                    className="block text-sm text-terracotta hover:text-forest transition-colors"
+                    className="block text-sm text-saffron hover:text-forest transition-colors"
                   >
                     {schoolData.phones.admission}
                   </a>
@@ -304,10 +302,10 @@ function Admission() {
                       >
                         {/* Mobile marker */}
                         <div className="md:hidden flex items-center gap-4 mb-4">
-                          <div className="relative z-10 w-11 h-11 rounded-full bg-terracotta text-ivory flex items-center justify-center shadow-soft">
+                          <div className="relative z-10 w-11 h-11 rounded-full bg-saffron text-ivory flex items-center justify-center shadow-soft">
                             <Icon size={20} strokeWidth={1.8} />
                           </div>
-                          <p className="text-[11px] tracking-editorial uppercase text-terracotta font-semibold">
+                          <p className="text-[11px] tracking-editorial uppercase text-saffron font-semibold">
                             Step {step.step}
                           </p>
                         </div>
@@ -323,7 +321,7 @@ function Admission() {
                               isRight ? '' : 'md:justify-end'
                             }`}
                           >
-                            <p className="text-[11px] tracking-editorial uppercase text-terracotta font-semibold">
+                            <p className="text-[11px] tracking-editorial uppercase text-saffron font-semibold">
                               Step {step.step}
                             </p>
                           </div>
@@ -343,7 +341,7 @@ function Admission() {
                                 <li key={d.id} className="flex items-start gap-2">
                                   <ChevronRight
                                     size={14}
-                                    className="mt-1 text-terracotta shrink-0"
+                                    className="mt-1 text-saffron shrink-0"
                                   />
                                   <span>{d.text}</span>
                                 </li>
@@ -376,8 +374,8 @@ function Admission() {
                           {/* Timeline dot */}
                           <div className="absolute top-3 md:left-1/2 md:-translate-x-1/2">
                             <div className="relative flex items-center justify-center">
-                              <div className="absolute w-6 h-6 rounded-full bg-terracotta/20 animate-ping" />
-                              <div className="relative z-10 w-11 h-11 rounded-full bg-terracotta text-ivory flex items-center justify-center shadow-soft border-[3px] border-ivory">
+                              <div className="absolute w-6 h-6 rounded-full bg-saffron/20 animate-ping" />
+                              <div className="relative z-10 w-11 h-11 rounded-full bg-saffron text-ivory flex items-center justify-center shadow-soft border-[3px] border-ivory">
                                 <Icon size={20} strokeWidth={1.8} />
                               </div>
                             </div>
@@ -389,7 +387,7 @@ function Admission() {
                             }`}
                           >
                             <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-wheat/30 blur-2xl" />
-                            <div className="absolute -left-6 -bottom-6 w-24 h-24 rounded-full bg-terracotta/10 blur-2xl" />
+                            <div className="absolute -left-6 -bottom-6 w-24 h-24 rounded-full bg-saffron/10 blur-2xl" />
                             <div className="relative text-center">
                               <div className="inline-flex w-14 h-14 rounded-full bg-ivory border border-wheat items-center justify-center mb-3">
                                 <span className="font-serif text-3xl text-forest italic">
@@ -464,7 +462,7 @@ function Admission() {
                                 <p className="font-serif text-lg text-charcoal leading-tight">
                                   {wing.name}
                                 </p>
-                                <p className="text-[10px] tracking-editorial uppercase text-terracotta mt-0.5">
+                                <p className="text-[10px] tracking-editorial uppercase text-saffron mt-0.5">
                                   {wing.ageRange}
                                 </p>
                               </div>
@@ -479,15 +477,15 @@ function Admission() {
                           <td className="px-5 py-5">
                             <ul className="space-y-1.5 text-xs text-charcoal-soft">
                               <li className="flex items-start gap-1.5">
-                                <span className="mt-1 w-1 h-1 rounded-full bg-terracotta shrink-0" />
+                                <span className="mt-1 w-1 h-1 rounded-full bg-saffron shrink-0" />
                                 Birth cert. / Aadhaar
                               </li>
                               <li className="flex items-start gap-1.5">
-                                <span className="mt-1 w-1 h-1 rounded-full bg-terracotta shrink-0" />
+                                <span className="mt-1 w-1 h-1 rounded-full bg-saffron shrink-0" />
                                 TC (Class I+)
                               </li>
                               <li className="flex items-start gap-1.5">
-                                <span className="mt-1 w-1 h-1 rounded-full bg-terracotta shrink-0" />
+                                <span className="mt-1 w-1 h-1 rounded-full bg-saffron shrink-0" />
                                 Previous marksheet
                               </li>
                             </ul>
@@ -523,9 +521,9 @@ function Admission() {
               />
 
               {/* Disclaimer banner */}
-              <div className="mt-12 bg-gradient-to-r from-terracotta/10 via-wheat/40 to-forest/10 border border-terracotta/30 p-6 md:p-8 rounded-sm">
+              <div className="mt-12 bg-gradient-to-r from-saffron/10 via-wheat/40 to-forest/10 border border-saffron/30 p-6 md:p-8 rounded-sm">
                 <div className="flex flex-col md:flex-row md:items-center gap-5">
-                  <div className="w-12 h-12 rounded-full bg-terracotta/15 border border-terracotta/40 flex items-center justify-center text-terracotta shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-saffron/15 border border-saffron/40 flex items-center justify-center text-saffron shrink-0">
                     <IndianRupee size={22} strokeWidth={1.8} />
                   </div>
                   <div className="flex-1">
@@ -635,7 +633,7 @@ function Admission() {
                           <p className="font-serif text-lg text-charcoal leading-tight">
                             {m.title}
                           </p>
-                          <p className="text-[10px] tracking-editorial uppercase text-terracotta mt-0.5">
+                          <p className="text-[10px] tracking-editorial uppercase text-saffron mt-0.5">
                             {m.subtitle}
                           </p>
                         </div>
@@ -662,7 +660,7 @@ function Admission() {
                 transition={{ duration: 0.7, ease: cinematic }}
                 className="relative overflow-hidden bg-gradient-to-br from-charcoal via-charcoal-soft to-forest-deep text-ivory p-8 md:p-14 rounded-sm shadow-editorial"
               >
-                <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-terracotta/20 blur-3xl" />
+                <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-saffron/20 blur-3xl" />
                 <div className="absolute -bottom-24 -left-16 w-96 h-96 rounded-full bg-forest/30 blur-3xl" />
 
                 <div className="relative grid md:grid-cols-5 gap-10 items-center">
@@ -671,7 +669,7 @@ function Admission() {
                       Prospectus & Handbook
                     </p>
                     <h2 className="font-serif text-4xl md:text-5xl leading-[1.05]">
-                      The Sanjivani <em className="italic text-terracotta-soft">Admission Handbook</em>
+                      The Sanjivani <em className="italic text-saffron-soft">Admission Handbook</em>
                     </h2>
                     <p className="mt-6 text-base md:text-lg text-ivory/85 leading-relaxed max-w-xl font-serifAlt">
                       A 44-page printed guide to our curriculum, campus rules, uniform code,
@@ -689,7 +687,7 @@ function Admission() {
                             window.location.href = `tel:${schoolData.phones.admission.replace(/\s+/g, '')}`
                           }
                         }}
-                        className="!bg-terracotta hover:!bg-terracotta-soft !text-ivory border-0"
+                        className="!bg-saffron hover:!bg-saffron-soft !text-ivory border-0"
                       >
                         Download Handbook PDF
                       </Button>
@@ -713,7 +711,7 @@ function Admission() {
                       Or call our admission desk directly at{' '}
                       <a
                         href={`tel:${schoolData.phones.admission?.replace(/\s+/g, '') ?? ''}`}
-                        className="text-terracotta-soft hover:underline"
+                        className="text-saffron-soft hover:underline"
                       >
                         {schoolData.phones.admission}
                       </a>{' '}
@@ -734,7 +732,7 @@ function Admission() {
                         <p className="font-serif text-3xl leading-tight text-ivory">
                           Admission
                           <br />
-                          <em className="italic text-terracotta-soft">Handbook</em>
+                          <em className="italic text-saffron-soft">Handbook</em>
                           <br />
                           2026–27
                         </p>
@@ -756,8 +754,8 @@ function Admission() {
                           <span>English / Marathi</span>
                         </div>
                       </div>
-                      <div className="absolute top-6 right-6 w-16 h-16 rounded-full border border-terracotta-soft/40 rotate-12 flex items-center justify-center">
-                        <span className="text-[8px] tracking-editorial uppercase text-terracotta-soft text-center leading-tight">
+                      <div className="absolute top-6 right-6 w-16 h-16 rounded-full border border-saffron-soft/40 rotate-12 flex items-center justify-center">
+                        <span className="text-[8px] tracking-editorial uppercase text-saffron-soft text-center leading-tight">
                           SEMS
                           <br />
                           2026-27
@@ -837,7 +835,7 @@ function Admission() {
                           }`}
                         >
                           <div className="col-span-4 md:col-span-3">
-                            <p className="text-[10px] tracking-editorial uppercase text-terracotta-soft">
+                            <p className="text-[10px] tracking-editorial uppercase text-saffron-soft">
                               {item.label}
                             </p>
                           </div>
@@ -856,7 +854,7 @@ function Admission() {
                     </div>
 
                     <div className="mt-6 pt-6 border-t border-ivory/15 flex flex-col sm:flex-row sm:items-center gap-3 text-sm text-ivory/80">
-                      <span className="w-2 h-2 rounded-full bg-terracotta-soft shrink-0 animate-pulse" />
+                      <span className="w-2 h-2 rounded-full bg-saffron-soft shrink-0 animate-pulse" />
                       <p>
                         School hours · Pre-Primary 8.30–12.30 · Primary 8.15–1.45 · Middle &amp;
                         Senior 8.00–2.30 pm
@@ -874,11 +872,11 @@ function Admission() {
                   className="md:col-span-2 bg-ivory border border-wheat/60 p-8 rounded-sm shadow-soft"
                 >
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-full bg-terracotta/10 flex items-center justify-center text-terracotta">
+                    <div className="w-10 h-10 rounded-full bg-saffron/10 flex items-center justify-center text-saffron">
                       <Sun size={18} strokeWidth={1.8} />
                     </div>
                     <div>
-                      <p className="text-[10px] tracking-editorial uppercase text-terracotta">
+                      <p className="text-[10px] tracking-editorial uppercase text-saffron">
                         Tentative list
                       </p>
                       <h3 className="font-serif text-xl text-charcoal leading-tight">
@@ -899,7 +897,7 @@ function Admission() {
                           <span className="w-1 h-1 rounded-full bg-forest shrink-0" />
                           <span className="text-sm text-charcoal leading-tight">{h.name}</span>
                         </div>
-                        <span className="text-[11px] tracking-editorial uppercase text-terracotta font-semibold shrink-0 ml-3">
+                        <span className="text-[11px] tracking-editorial uppercase text-saffron font-semibold shrink-0 ml-3">
                           {h.date}
                         </span>
                       </li>
@@ -935,10 +933,12 @@ function Admission() {
                 <div className="absolute inset-0">
                   <img
                     src={img(
-                      'Cinematic wide editorial, welcome banner of Indian school entrance gate with marigold garlands, children walking in with parents, warm morning sunlight, terracotta and forest tones, no logos, 16:9, Maharashtra rural school atmosphere',
+                      'Cinematic wide editorial, welcome banner of Indian school entrance gate with marigold garlands, children walking in with parents, warm morning sunlight, saffron and forest tones, no logos, 16:9, Maharashtra rural school atmosphere',
                     )}
-                    alt=""
+                    alt="Sanjivani school entrance decorated with marigold garlands welcoming new students"
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-charcoal/90 via-charcoal/80 to-forest-deep/85" />
                 </div>
@@ -948,7 +948,7 @@ function Admission() {
                     Ready to start the journey
                   </p>
                   <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl leading-[1.05] max-w-3xl mx-auto">
-                    Enquire &amp; <em className="italic text-terracotta-soft">Register</em> Today
+                    Enquire &amp; <em className="italic text-saffron-soft">Register</em> Today
                   </h2>
                   <p className="mt-6 text-base md:text-lg text-ivory/85 leading-relaxed max-w-2xl mx-auto font-serifAlt">
                     Limited seats across every wing for the 2026–27 academic year. Reach out to our
@@ -958,7 +958,7 @@ function Admission() {
                   <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5">
                     <Link
                       to="/contact"
-                      className="btn-primary !bg-terracotta hover:!bg-terracotta-soft !text-ivory !px-8 !py-4 !text-base w-full sm:w-auto justify-center"
+                      className="btn-primary !bg-saffron hover:!bg-saffron-soft !text-ivory !px-8 !py-4 !text-base w-full sm:w-auto justify-center"
                     >
                       <Send size={18} />
                       Start Enquiry
@@ -981,7 +981,7 @@ function Admission() {
                       <p className="text-[10px] tracking-editorial uppercase text-wheat mb-2">
                         Primary
                       </p>
-                      <p className="font-serif text-xl text-ivory leading-tight group-hover:text-terracotta-soft transition-colors">
+                      <p className="font-serif text-xl text-ivory leading-tight group-hover:text-saffron-soft transition-colors">
                         {schoolData.phones.primary}
                       </p>
                       <p className="text-xs text-ivory/60 mt-1">
@@ -995,7 +995,7 @@ function Admission() {
                       <p className="text-[10px] tracking-editorial uppercase text-wheat mb-2">
                         Admission Desk
                       </p>
-                      <p className="font-serif text-xl text-ivory leading-tight group-hover:text-terracotta-soft transition-colors">
+                      <p className="font-serif text-xl text-ivory leading-tight group-hover:text-saffron-soft transition-colors">
                         {schoolData.phones.admission}
                       </p>
                       <p className="text-xs text-ivory/60 mt-1">
@@ -1009,7 +1009,7 @@ function Admission() {
                       <p className="text-[10px] tracking-editorial uppercase text-wheat mb-2">
                         Email
                       </p>
-                      <p className="font-serif text-lg text-ivory leading-tight group-hover:text-terracotta-soft transition-colors break-all">
+                      <p className="font-serif text-lg text-ivory leading-tight group-hover:text-saffron-soft transition-colors break-all">
                         {schoolData.emails.admission}
                       </p>
                       <p className="text-xs text-ivory/60 mt-1">

@@ -19,7 +19,7 @@ function RatingStars({ rating }: { rating: 1 | 2 | 3 | 4 | 5 }) {
           size={15}
           className={
             n <= rating
-              ? 'fill-terracotta text-terracotta'
+              ? 'fill-sunflower text-sunflower'
               : 'text-wheat fill-transparent'
           }
           strokeWidth={1.5}
@@ -104,10 +104,10 @@ export default function TestimonialCarousel({
 
   return (
     <div className="w-full py-14 md:py-20 bg-forest-deep text-ivory relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.06] pointer-events-none bg-[radial-gradient(circle_at_20%_20%,#B6583C_0%,transparent_60%),radial-gradient(circle_at_80%_80%,#E4D9B8_0%,transparent_60%)]" />
+      <div className="absolute inset-0 opacity-[0.08] pointer-events-none bg-[radial-gradient(circle_at_20%_20%,#941F32_0%,transparent_60%),radial-gradient(circle_at_80%_80%,#F49A24_0%,transparent_60%)]" />
       <div className="relative container-editorial">
         <div className="mb-10 md:mb-14">
-          <p className="text-xs uppercase tracking-editorial text-terracotta-soft mb-3 font-semibold">
+          <p className="text-xs uppercase tracking-editorial text-sunflower-soft mb-3 font-semibold">
             Trusted Voices
           </p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-ivory">
@@ -136,23 +136,23 @@ export default function TestimonialCarousel({
                   <motion.div
                     whileHover={{ y: -4 }}
                     transition={{ duration: 0.45, ease: cinematic }}
-                    className="h-full bg-ivory/95 text-charcoal p-6 md:p-7 flex flex-col gap-5 min-h-[380px]"
-                    style={{ boxShadow: '0 1px 2px rgba(31,41,36,0.06)' }}
+                    className="h-full bg-ivory/95 text-charcoal p-6 md:p-7 flex flex-col gap-5 min-h-[380px] rounded-2xl"
+                    style={{ boxShadow: '0 8px 24px -12px rgba(31,41,36,0.18)' }}
                   >
                     <RatingStars rating={item.rating} />
 
                     <p className="font-serifAlt text-xl md:text-[22px] leading-relaxed text-charcoal flex-1 italic">
-                      <span className="text-terracotta text-3xl leading-none mr-1 align-sub">
-                        “
+                      <span className="text-coral text-3xl leading-none mr-1 align-sub">
+                        "
                       </span>
                       {item.quote}
-                      <span className="text-terracotta text-3xl leading-none ml-1 align-text-top">
-                        ”
+                      <span className="text-coral text-3xl leading-none ml-1 align-text-top">
+                        "
                       </span>
                     </p>
 
                     <div className="flex items-center gap-4 pt-3 border-t border-wheat/60">
-                      <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-wheat">
+                      <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-sunflower/40">
                         <img
                           src={item.avatar}
                           alt={item.name}
@@ -164,7 +164,7 @@ export default function TestimonialCarousel({
                         <p className="font-semibold text-charcoal text-sm truncate">
                           {item.name}
                         </p>
-                        <p className="text-[12px] text-terracotta font-medium truncate">
+                        <p className="text-[12px] text-coral font-medium truncate">
                           {item.relation}
                         </p>
                         <p className="text-[11px] text-sage truncate">
@@ -188,7 +188,7 @@ export default function TestimonialCarousel({
                   aria-label={`Go to testimonial page ${i + 1}`}
                   className={`h-2 rounded-full transition-all duration-450 ease-cinematic ${
                     i === clampedPage
-                      ? 'w-10 bg-terracotta'
+                      ? 'w-10 bg-sunflower'
                       : 'w-2 bg-ivory/30 hover:bg-ivory/50'
                   }`}
                 />

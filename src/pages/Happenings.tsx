@@ -11,9 +11,6 @@ import Button from '@/components/Button'
 const categories = ['All', 'Academic', 'Cultural', 'Sports', 'Celebration'] as const
 type Category = (typeof categories)[number]
 
-const img = (prompt: string, size = 'landscape_16_9') =>
-  `https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=${encodeURIComponent(prompt)}&image_size=${size}`
-
 const heroSlides = [
   {
     id: 'happenings-hero',
@@ -21,10 +18,7 @@ const heroSlides = [
     subtitle:
       'From the quiet pride of a felicitation to the thunderous roar of Khel Mahotsav — every week at Sanjivani is a chapter in the life of our campus.',
     tagline: 'Happenings · 2025–26',
-    image: img(
-      'Editorial wide shot of Indian rural school campus courtyard, students in uniform sitting under banyan tree, morning sunlight filtering, marigold decorations, cultural campus atmosphere, no logos, documentary photography style',
-      'landscape_16_9',
-    ),
+    image: '/home-hero-1.jpg',
   },
 ]
 
@@ -109,6 +103,8 @@ export default function Happenings() {
                   src={featured.thumbnail}
                   alt={featured.title}
                   className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-charcoal/10 via-transparent to-transparent" />
               </div>
@@ -222,6 +218,8 @@ export default function Happenings() {
                         src={event.thumbnail}
                         alt={event.title}
                         className="w-full h-full object-cover transition-transform duration-700 ease-cinematic group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
 

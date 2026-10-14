@@ -21,7 +21,7 @@ function StickySideCTA() {
       </Link>
       <Link
         to="/admission"
-        className="group flex items-center gap-0 bg-terracotta text-ivory px-3 py-5 hover:bg-terracotta-soft transition-all duration-450 ease-cinematic"
+        className="group flex items-center gap-0 bg-saffron text-ivory px-3 py-5 hover:bg-saffron-soft transition-all duration-450 ease-cinematic"
       >
         <FilePenLine className="w-4 h-4 shrink-0" />
         <span

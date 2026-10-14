@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import {
   RouterProvider,
   createBrowserRouter,
-  ScrollRestoration,
   Outlet,
   useLocation,
 } from 'react-router-dom'
@@ -71,6 +70,38 @@ function PageFrame() {
     document.title = map[basePath] ?? map[location.pathname] ?? map['/']
   }, [location.pathname])
 
+  // Handle in-page anchor links (e.g. /academics#co-curricular).
+  // Because pages are lazy-loaded, the target section may not exist on the
+  // first render, so we retry a few times with a short delay.
+  useEffect(() => {
+    if (!location.hash) return
+    const id = location.hash.slice(1)
+    if (!id) return
+
+    let attempts = 0
+    const maxAttempts = 10
+    const tryScroll = () => {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'instant', block: 'start' })
+        return
+      }
+      if (attempts < maxAttempts) {
+        attempts++
+        window.setTimeout(tryScroll, 100)
+      }
+    }
+    // Give the lazy-loaded route a moment to mount.
+    const timer = window.setTimeout(tryScroll, 100)
+    return () => window.clearTimeout(timer)
+  }, [location.pathname, location.hash])
+
+  // Scroll to top when navigating between pages (no hash).
+  useEffect(() => {
+    if (location.hash) return
+    window.scrollTo({ top: 0 })
+  }, [location.pathname, location.hash])
+
   return (
     <div className="min-h-screen bg-ivory flex flex-col">
       <Navbar />
@@ -84,7 +115,6 @@ function PageFrame() {
       <StickySideCTA />
       <WhatsAppFloat />
       <Footer />
-      <ScrollRestoration getKey={(loc) => loc.pathname} />
     </div>
   )
 }

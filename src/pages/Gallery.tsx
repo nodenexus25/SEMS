@@ -124,19 +124,22 @@ function buildGallery(): GalleryThumbnail[] {
   }
   items.push(...classroomImgs.slice(0, 6))
 
+  const realSports: GalleryThumbnail[] = [
+    { id: 'sports-real-1', src: '/1000327181.jpg', title: 'Inter-House Volleyball Match', category: 'sports' },
+    { id: 'sports-real-2', src: '/home-hero-1.jpg', title: 'Inter-House Sports Gathering', category: 'sports' },
+    { id: 'sports-real-3', src: '/home-hero-2.jpg', title: 'Sports Day Prize Distribution', category: 'sports' },
+    { id: 'sports-real-4', src: '/1000327184.jpg', title: 'Sports Meet Inauguration', category: 'sports' },
+  ]
+  items.push(...realSports)
   const sportsPrompts = [
     'Rural Indian school kho-kho match in progress, girls team in uniform, green field, afternoon sun, editorial sports photo',
     'School athletics sprint race, boys running on cinder track, spectators cheering, winter morning light, documentary',
-    'Inter-house kabaddi match, students on clay court, action pose, dust, rural school sports day, editorial',
-    'School cricket match, boy bowling on pitch, wickets, boundary rope, field background, golden hour',
-    'Students doing PT drill, dumbbells, school parade ground, formation, NCC cadets, winter morning, editorial',
-    'Throwball girls match at Indian school, net court, action jump shot, sports ground, clear sky',
   ]
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < sportsPrompts.length; i++) {
     items.push({
       id: `sports-${i}`,
       src: img(sportsPrompts[i]),
-      title: `Sports · ${['Kho-Kho', 'Athletics', 'Kabaddi', 'Cricket', 'PT Drill', 'Throwball'][i]}`,
+      title: `Sports · ${['Kho-Kho', 'Athletics'][i]}`,
       category: 'sports',
     })
   }
@@ -158,7 +161,20 @@ function buildGallery(): GalleryThumbnail[] {
     })
   }
 
-  const extra: GalleryThumbnail[] = []
+  const extra: GalleryThumbnail[] = [
+    {
+      id: 'events-real-investiture',
+      src: '/1000327224.jpg',
+      title: 'Investiture Ceremony',
+      category: 'events',
+    },
+    {
+      id: 'campus-real-office',
+      src: '/1000327223.jpg',
+      title: 'School Office · Admission Desk',
+      category: 'campus',
+    },
+  ]
   team.slice(0, 4).forEach((m) => {
     extra.push({
       id: `team-${m.id}`,
@@ -304,6 +320,7 @@ function Lightbox({
                   alt={current.title}
                   className="w-full max-h-[72vh] object-contain bg-charcoal/60"
                   draggable={false}
+                  decoding="async"
                 />
               </div>
               <div className="mt-5 text-center max-w-2xl">
@@ -385,7 +402,7 @@ export default function Gallery() {
                   transition={{ duration: 0.45, ease: cinematic, delay: Math.min(idx * 25, 300) }}
                   onClick={() => openLightbox(idx)}
                   className="group relative aspect-[4/3] bg-sage-light/30 overflow-hidden border border-wheat/50 cursor-pointer rounded-sm"
-                  style={{ boxShadow: '0 1px 3px rgba(31, 41, 36, 0.08)' }}
+                  style={{ boxShadow: '0 1px 3px rgba(23, 54, 83, 0.08)' }}
                 >
                   <img
                     src={item.src}

@@ -279,6 +279,8 @@ function WingPage() {
                   src={data.gallery[0]}
                   alt={`${data.name} pedagogy in action`}
                   className="w-full h-[480px] object-cover shadow-editorial"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>

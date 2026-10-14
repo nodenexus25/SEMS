@@ -14,7 +14,7 @@ function renderTitleWithAccent(title: string, accentIndex?: number) {
   if (target < 0 || target >= words.length) return title
   return words.map((word, i) =>
     i === target ? (
-      <em key={i} className="italic text-terracotta">
+      <em key={i} className="italic text-coral not-italic font-bold bg-gradient-to-r from-coral via-sunflower to-sky bg-clip-text text-transparent">
         {word}
       </em>
     ) : (
@@ -40,7 +40,7 @@ function SectionHeading({
   return (
     <div className={`max-w-3xl ${alignClass}`}>
       {eyebrow && (
-        <p className="text-[11px] tracking-editorial uppercase text-terracotta mb-4">
+        <p className="text-[11px] tracking-editorial uppercase text-sky mb-4 font-semibold">
           {eyebrow}
         </p>
       )}

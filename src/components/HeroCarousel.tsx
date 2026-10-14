@@ -76,15 +76,31 @@ export default function HeroCarousel({
   const prev = useCallback(() => goTo(index - 1), [index, goTo])
   const next = useCallback(() => goTo(index + 1), [index, goTo])
 
-  // Preload all hero images into the browser cache so carousel slide changes
-  // never abort in-flight image requests (causes net::ERR_ABORTED in console).
+  // Preload the next slide's image immediately so the carousel transition is
+  // smooth, then preload the remaining slides during idle time so they don't
+  // compete with the first paint.
   useEffect(() => {
     if (total === 0) return
-    slides.forEach((slide) => {
-      const preload = new Image()
-      preload.src = slide.image
-    })
-  }, [slides, total])
+    const next = slides[(index + 1) % total]
+    const preloadNext = new Image()
+    preloadNext.src = next.image
+
+    const preloadRest = () => {
+      slides.forEach((slide, i) => {
+        if (i === index || i === (index + 1) % total) return
+        const preload = new Image()
+        preload.src = slide.image
+      })
+    }
+
+    const hasIdle = typeof (window as any).requestIdleCallback === 'function'
+    if (hasIdle) {
+      const handle = (window as any).requestIdleCallback(preloadRest)
+      return () => (window as any).cancelIdleCallback(handle)
+    }
+    const handle = window.setTimeout(preloadRest, 1200)
+    return () => window.clearTimeout(handle)
+  }, [slides, total, index])
 
   useEffect(() => {
     if (paused || total <= 1) return
@@ -122,10 +138,10 @@ export default function HeroCarousel({
             draggable={false}
             decoding="async"
           />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_20%,rgba(47,82,51,0.3),transparent_55%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_90%,rgba(182,88,60,0.28),transparent_55%)]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/92 via-charcoal/58 to-charcoal/22" />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/20 to-charcoal/40" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_10%_20%,rgba(47,82,51,0.22),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_90%,rgba(244,185,66,0.2),transparent_55%)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/78 via-charcoal/42 to-charcoal/12" />
+          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/10 to-charcoal/25" />
           <div className="absolute inset-0 mix-blend-overlay opacity-30 pointer-events-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%222%22 stitchTiles=%22stitch%22/><feColorMatrix values=%220 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.16 0%22/></filter><rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/></svg>')]" />
 
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-wheat/50 to-transparent pointer-events-none" />
@@ -140,7 +156,7 @@ export default function HeroCarousel({
                   className="mb-6 flex items-center gap-3"
                 >
                   <span className="inline-flex items-center gap-2 glass-ivory !bg-ivory/10 !border-wheat/30 px-3 py-1.5 rounded-full text-[10px] tracking-[0.24em] uppercase text-wheat">
-                    <span className="w-1.5 h-1.5 rounded-full bg-terracotta-soft animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-saffron-soft animate-pulse" />
                     {current.tagline}
                   </span>
                   <span className="h-px w-14 bg-wheat/40" />
@@ -178,7 +194,7 @@ export default function HeroCarousel({
                 >
                   <Link
                     to={current.ctaHref ?? '/'}
-                    className="group relative inline-flex items-center gap-2.5 rounded-full bg-terracotta text-ivory px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] shadow-[0_20px_50px_-20px_rgba(182,88,60,0.6)] hover:bg-terracotta-soft transition-all duration-500 ease-cinematic hover:-translate-y-0.5 overflow-hidden"
+                    className="group relative inline-flex items-center gap-2.5 rounded-full bg-saffron text-ivory px-8 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] shadow-[0_20px_50px_-20px_rgba(217,122,30,0.6)] hover:bg-saffron-soft transition-all duration-500 ease-cinematic hover:-translate-y-0.5 overflow-hidden"
                   >
                     <span className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(228,217,184,0.25),transparent_60%)]" />
                     <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1200ms] ease-cinematic" />
@@ -229,7 +245,7 @@ export default function HeroCarousel({
             initial={{ x: '-100%' }}
             animate={{ x: '0%' }}
             transition={{ duration: intervalMs / 1000, ease: 'linear' }}
-            className="absolute inset-y-0 left-0 w-full rounded-full bg-gradient-to-r from-terracotta via-wheat to-ivory"
+            className="absolute inset-y-0 left-0 w-full rounded-full bg-gradient-to-r from-saffron via-wheat to-ivory"
           />
         </div>
         <span className="text-[10px] tracking-[0.28em] uppercase text-ivory/70 font-mono tabular-nums">

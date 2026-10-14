@@ -95,27 +95,27 @@ function EventCard({
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.45, ease: cinematic, delay }}
       onClick={onClick}
-      className="group bg-ivory border border-wheat/60 overflow-hidden cursor-pointer"
-      style={{ boxShadow: '0 1px 2px rgba(31, 41, 36, 0.06)' }}
+      className="group bg-ivory border border-wheat/60 rounded-2xl overflow-hidden cursor-pointer"
+      style={{ boxShadow: '0 4px 16px -8px rgba(23, 54, 83, 0.12)' }}
     >
-      <div className="relative h-[320px] overflow-hidden bg-forest/5">
+      <div className="relative h-[320px] overflow-hidden bg-forest/5 rounded-t-2xl">
         <img
           src={event.thumbnail}
           alt={event.title}
           loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-600 ease-cinematic group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-600 ease-cinematic group-hover:scale-108"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/78 via-charcoal/15 to-transparent" />
         <div className="absolute top-4 left-4 flex gap-2">
-          <span className="bg-terracotta text-ivory px-3 py-1 text-[11px] tracking-editorial uppercase font-medium">
+          <span className="bg-coral text-white px-3 py-1 rounded-full text-[11px] tracking-editorial uppercase font-medium shadow-soft">
             {event.category}
           </span>
-          <span className="bg-charcoal/85 text-ivory px-3 py-1 text-[11px] tracking-editorial uppercase font-medium">
+          <span className="bg-charcoal/85 text-ivory px-3 py-1 rounded-full text-[11px] tracking-editorial uppercase font-medium">
             {eyebrow}
           </span>
         </div>
-        <div className="absolute top-4 right-4 w-14 h-14 bg-ivory flex flex-col items-center justify-center shadow-editorial">
-          <span className="font-serif text-xl leading-none text-terracotta">
+        <div className="absolute top-4 right-4 w-14 h-14 bg-ivory rounded-2xl flex flex-col items-center justify-center shadow-editorial">
+          <span className="font-serif text-xl leading-none text-coral">
             {event.dayNum}
           </span>
           <span className="text-[10px] tracking-editorial uppercase text-charcoal-soft font-semibold mt-0.5">
@@ -139,7 +139,7 @@ function EventCard({
         <p className="text-base leading-relaxed text-charcoal-soft/85">
           {event.excerpt}
         </p>
-        <div className="flex items-center gap-2 text-terracotta text-sm font-medium">
+        <div className="flex items-center gap-2 text-coral text-sm font-medium">
           <span>Read the full story</span>
           <motion.span
             className="inline-block"
@@ -180,7 +180,7 @@ export default function Home() {
                 decoratedUnderline
               />
               <div className="mt-8 flex items-center gap-2 text-xs uppercase tracking-editorial text-charcoal-soft/60">
-                <Landmark size={14} className="text-terracotta" />
+                <Landmark size={14} className="text-sky" />
                 <span>
                   {schoolData.address.landmark} · {schoolData.address.city},{' '}
                   {schoolData.address.state}
@@ -194,14 +194,14 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, ease: cinematic, delay: 0.1 }}
-                className="relative bg-ivory border border-wheat/60 p-6 md:p-10 shadow-editorial"
+                className="relative bg-ivory border border-wheat/60 p-6 md:p-10 rounded-3xl shadow-editorial"
               >
-                <div className="absolute -top-4 left-6 md:-top-5 md:left-10 w-12 h-12 md:w-14 md:h-14 rounded-full bg-terracotta text-ivory flex items-center justify-center shadow-editorial">
+                <div className="absolute -top-4 left-6 md:-top-5 md:left-10 w-12 h-12 md:w-14 md:h-14 rounded-full bg-sunflower text-charcoal flex items-center justify-center shadow-editorial">
                   <Sparkles size={24} strokeWidth={1.8} />
                 </div>
                 <blockquote className="font-serifAlt text-2xl md:text-3xl leading-relaxed text-charcoal italic pt-6">
-                  <span className="text-terracotta text-5xl leading-none mr-2 align-sub float-left -mt-2">
-                    “
+                  <span className="text-coral text-5xl leading-none mr-2 align-sub float-left -mt-2">
+                    "
                   </span>
                   माझा शिक्षण हा एक दिवा आहे — गावातील प्रत्येक घरात,
                   प्रत्येक बाळाच्या मनात तो दिवा लावणार हा संजीवनी शाळा.
@@ -211,8 +211,8 @@ export default function Home() {
                     this lamp to every home, to every child in the village —
                     and lights one more.
                   </span>
-                  <span className="text-terracotta text-5xl leading-none ml-2 align-text-top">
-                    ”
+                  <span className="text-coral text-5xl leading-none ml-2 align-text-top">
+                    "
                   </span>
                 </blockquote>
                 <figcaption className="mt-8 border-t border-wheat/60 pt-5 flex items-center justify-between gap-4 flex-wrap">
@@ -399,7 +399,7 @@ export default function Home() {
       </SectionWrap>
 
       <SectionWrap delay={0.06} className="py-20 md:py-28 bg-forest-deep relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.07] pointer-events-none bg-[radial-gradient(circle_at_15%_30%,#E4D9B8_0%,transparent_55%),radial-gradient(circle_at_85%_70%,#B6583C_0%,transparent_55%)]" />
+        <div className="absolute inset-0 opacity-[0.07] pointer-events-none bg-[radial-gradient(circle_at_15%_30%,#DCEEFF_0%,transparent_55%),radial-gradient(circle_at_85%_70%,#B72D3E_0%,transparent_55%)]" />
         <div className="container-editorial relative">
           <div className="max-w-4xl mx-auto text-center">
             <motion.p

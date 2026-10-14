@@ -32,18 +32,26 @@ function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-charcoal text-ivory/90">
+    <footer className="bg-forest-deep text-ivory/90">
       <div className="container-editorial py-16 grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
         <div>
           <div className="flex items-center gap-3 mb-6">
-            <div className="h-11 w-11 rounded-sm bg-ivory/10 border border-ivory/20 flex items-center justify-center font-serif italic text-2xl text-ivory">
-              S
+            <div className="h-11 w-11 rounded-full overflow-hidden ring-1 ring-ivory/20 bg-white flex-shrink-0">
+              <img
+                src="/ses logo.jpeg"
+                alt="Sanjivani English Medium School emblem"
+                className="w-full h-full object-cover"
+                width={44}
+                height={44}
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div className="leading-tight">
               <p className="font-serif text-lg text-ivory">
                 {schoolData.name}
               </p>
-              <p className="text-[10px] tracking-editorial uppercase text-terracotta-soft">
+              <p className="text-[10px] tracking-editorial uppercase text-saffron-soft">
                 Est. {schoolData.establishedYear} · Kopargaon
               </p>
             </div>
@@ -53,7 +61,7 @@ function Footer() {
           </p>
           <ul className="space-y-3 text-sm">
             <li className="flex items-start gap-3">
-              <MapPin className="w-4 h-4 mt-0.5 text-terracotta-soft flex-shrink-0" />
+              <MapPin className="w-4 h-4 mt-0.5 text-saffron-soft flex-shrink-0" />
               <span className="text-ivory/75 leading-relaxed">
                 {schoolData.address.line1},<br />
                 {schoolData.address.city}, {schoolData.address.state} {schoolData.address.pin}
@@ -64,40 +72,40 @@ function Footer() {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <Phone className="w-4 h-4 text-terracotta-soft flex-shrink-0" />
+              <Phone className="w-4 h-4 text-saffron-soft flex-shrink-0" />
               <a
                 href={`tel:${formatPhoneForTel(schoolData.phones.primary)}`}
-                className="text-ivory/80 hover:text-terracotta-soft transition-colors duration-300 ease-cinematic"
+                className="text-ivory/80 hover:text-saffron-soft transition-colors duration-300 ease-cinematic"
               >
                 {schoolData.phones.primary}
               </a>
             </li>
             {schoolData.phones.admission && (
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-sage-light flex-shrink-0" />
+                <Phone className="w-4 h-4 text-saffron-soft flex-shrink-0" />
                 <a
                   href={`tel:${formatPhoneForTel(schoolData.phones.admission)}`}
-                  className="text-ivory/70 hover:text-terracotta-soft transition-colors duration-300 ease-cinematic text-xs"
+                  className="text-ivory/70 hover:text-saffron-soft transition-colors duration-300 ease-cinematic text-xs"
                 >
                   Admission · {schoolData.phones.admission}
                 </a>
               </li>
             )}
             <li className="flex items-center gap-3">
-              <Mail className="w-4 h-4 text-terracotta-soft flex-shrink-0" />
+              <Mail className="w-4 h-4 text-saffron-soft flex-shrink-0" />
               <a
                 href={`mailto:${schoolData.emails.primary}`}
-                className="text-ivory/80 hover:text-terracotta-soft transition-colors duration-300 ease-cinematic"
+                className="text-ivory/80 hover:text-saffron-soft transition-colors duration-300 ease-cinematic"
               >
                 {schoolData.emails.primary}
               </a>
             </li>
             {schoolData.emails.admission && (
               <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-sage-light flex-shrink-0" />
+                <Mail className="w-4 h-4 text-saffron-soft flex-shrink-0" />
                 <a
                   href={`mailto:${schoolData.emails.admission}`}
-                  className="text-ivory/70 hover:text-terracotta-soft transition-colors duration-300 ease-cinematic text-xs"
+                  className="text-ivory/70 hover:text-saffron-soft transition-colors duration-300 ease-cinematic text-xs"
                 >
                   {schoolData.emails.admission}
                 </a>
@@ -119,7 +127,7 @@ function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="flex items-center gap-3 text-ivory/70 hover:text-terracotta-soft transition-colors duration-300 ease-cinematic"
+                    className="flex items-center gap-3 text-ivory/70 hover:text-saffron-soft transition-colors duration-300 ease-cinematic"
                     aria-label={social.label}
                   >
                     <span className="h-8 w-8 rounded-sm bg-ivory/10 border border-ivory/10 flex items-center justify-center flex-shrink-0">
@@ -139,7 +147,7 @@ function Footer() {
             href={schoolData.website}
             target="_blank"
             rel="noreferrer noopener"
-            className="text-sm text-ivory/70 hover:text-terracotta-soft transition-colors duration-300 ease-cinematic break-all"
+            className="text-sm text-ivory/70 hover:text-saffron-soft transition-colors duration-300 ease-cinematic break-all"
           >
             {schoolData.website}
           </a>
@@ -160,7 +168,7 @@ function Footer() {
                     <li key={link.id}>
                       <Link
                         to={link.href}
-                        className="text-xs text-ivory/65 hover:text-terracotta-soft transition-colors duration-300 ease-cinematic"
+                        className="text-xs text-ivory/65 hover:text-saffron-soft transition-colors duration-300 ease-cinematic"
                       >
                         {link.label}
                       </Link>
@@ -190,19 +198,19 @@ function Footer() {
             <div className="mt-2 flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-1">
               <Link
                 to="/contact"
-                className="text-[10px] tracking-editorial uppercase text-ivory/40 hover:text-terracotta-soft transition-colors duration-300 ease-cinematic"
+                className="text-[10px] tracking-editorial uppercase text-ivory/40 hover:text-saffron-soft transition-colors duration-300 ease-cinematic"
               >
                 Privacy
               </Link>
               <Link
                 to="/contact"
-                className="text-[10px] tracking-editorial uppercase text-ivory/40 hover:text-terracotta-soft transition-colors duration-300 ease-cinematic"
+                className="text-[10px] tracking-editorial uppercase text-ivory/40 hover:text-saffron-soft transition-colors duration-300 ease-cinematic"
               >
                 Terms
               </Link>
               <Link
                 to="/contact"
-                className="text-[10px] tracking-editorial uppercase text-ivory/40 hover:text-terracotta-soft transition-colors duration-300 ease-cinematic"
+                className="text-[10px] tracking-editorial uppercase text-ivory/40 hover:text-saffron-soft transition-colors duration-300 ease-cinematic"
               >
                 Sitemap
               </Link>

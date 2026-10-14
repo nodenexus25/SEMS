@@ -23,8 +23,7 @@ const heroSlide: HeroSlide = {
   title: 'Achievements that echo through corridors.',
   subtitle:
     'From taluka ranks to national podiums — every medal, every certificate, every story that makes Sanjivani what it is.',
-  image:
-    'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Indian%20school%20medal%20display%20cabinet%2C%20trophies%2C%20certificates%2C%20marigold%20garlands%2C%20warm%20afternoon%20light%2C%20editorial%20documentary&image_size=landscape_16_9',
+  image: '/1000327218.jpg',
   ctaLabel: 'Meet our toppers',
   ctaHref: '#results',
 }
@@ -347,7 +346,7 @@ export default function Achievements() {
               className="group mt-14 block overflow-hidden bg-gradient-to-r from-terracotta via-terracotta-soft to-terracotta relative"
               style={{ boxShadow: '0 20px 50px -20px rgba(182,88,60,0.4)' }}
             >
-              <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_0%_50%,#F8F7F2_0%,transparent_55%),radial-gradient(circle_at_100%_50%,#2F5233_0%,transparent_55%)]" />
+              <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_0%_50%,#FFFFFF_0%,transparent_55%),radial-gradient(circle_at_100%_50%,#2367A5_0%,transparent_55%)]" />
               <div className="relative py-5 px-6 md:py-6 md:px-10 flex items-center gap-4 md:gap-8 overflow-hidden">
                 <div className="shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-full bg-ivory/20 border border-ivory/30 flex items-center justify-center">
                   <Trophy className="text-ivory" size={26} strokeWidth={1.8} />
@@ -562,7 +561,7 @@ export default function Achievements() {
       </section>
 
       <section className="py-20 md:py-24 bg-gradient-to-br from-cream via-ivory-deep to-cream relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(circle_at_30%_20%,#2F5233_0%,transparent_55%),radial-gradient(circle_at_70%_80%,#B6583C_0%,transparent_55%)]" />
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(circle_at_30%_20%,#2367A5_0%,transparent_55%),radial-gradient(circle_at_70%_80%,#B72D3E_0%,transparent_55%)]" />
         <div className="container-editorial relative">
           <motion.div
             initial={{ opacity: 0, y: 24 }}

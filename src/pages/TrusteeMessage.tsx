@@ -42,12 +42,13 @@ export default function TrusteeMessage() {
               <figure className="relative">
                 <div
                   className="aspect-[4/5] overflow-hidden bg-cream border border-wheat/50"
-                  style={{ boxShadow: '0 20px 50px -20px rgba(31, 41, 36, 0.22)' }}
+                  style={{ boxShadow: '0 20px 50px -20px rgba(23, 54, 83, 0.22)' }}
                 >
                   <img
                     src={trustee.portrait}
                     alt={trustee.name}
                     className="w-full h-full object-cover"
+                    decoding="async"
                   />
                 </div>
                 <figcaption className="mt-6">

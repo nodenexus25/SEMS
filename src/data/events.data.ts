@@ -20,8 +20,13 @@ export const events: EventItem[] = [
     description:
       'The annual Class X Toppers Felicitation Ceremony for the 2026 academic cohort was held on the 12th of September at the Saraswati Sabhagriha. Shrimati Manisha Tai Pawar, District Education Officer, presided as Chief Guest and awarded gold medals to the top ten rank holders, along with merit certificates from the Sanjivani Education Trust. Our Principal, in her address, reminded the gathering that every topper stood on the shoulders of a family — and that the school owed its results to the parents of Kopargaon taluka who sent their children to us every morning, rain or shine. The cultural half of the programme included a short Marathi play by the senior students titled "Dhag — A School Called Home".',
     featured: true,
-    thumbnail: img('Indian school felicitation ceremony, on-stage medal distribution, marigold garlands, parents seated audience, warm stage lighting, editorial documentary photo, no logos', 'landscape_16_9'),
-    gallery: galleryFor('Indian school toppers receiving medals on stage, editorial documentary'),
+    thumbnail: '/1000327216.jpg',
+    gallery: [
+      '/542A6787.JPG',
+      '/1000327217.jpg',
+      '/1000327218.jpg',
+      '/1000327219.jpg',
+    ],
     location: 'Saraswati Sabhagriha · Sanjivani Campus',
   },
   {
@@ -48,8 +53,12 @@ export const events: EventItem[] = [
     excerpt: 'Four houses, three days, one heartbeat. Red House lifted the 2026 Khel Mahotsav trophy.',
     description:
       'The three-day Sanjivani Khel Mahotsav concluded on the 15th of January with Red House edging past Green House by a margin of just 14 points. Events ranged from kho-kho and kabaddi — our taluka favourites — to athletics, discus, javelin, table tennis and chess. Our Class VII girl, Gargi M., set a new 100-metre sprint record of 13.7 seconds.',
-    thumbnail: img('Rural Indian school sports day, students running on cinder track, kho-kho match, spectators cheering, winter morning sun, editorial documentary photo', 'landscape_16_9'),
-    gallery: galleryFor('Indian school sports day kho kho kabaddi running athletics'),
+    thumbnail: '/1000327181.jpg',
+    gallery: [
+      '/home-hero-1.jpg',
+      '/home-hero-2.jpg',
+      '/1000327184.jpg',
+    ],
     location: 'Sanjivani Athletics Ground',
   },
   {

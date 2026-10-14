@@ -47,12 +47,13 @@ export default function PrincipalMessage() {
               <figure className="relative">
                 <div
                   className="aspect-[4/5] overflow-hidden bg-cream border border-wheat/50"
-                  style={{ boxShadow: '0 20px 50px -20px rgba(31, 41, 36, 0.22)' }}
+                  style={{ boxShadow: '0 20px 50px -20px rgba(23, 54, 83, 0.22)' }}
                 >
                   <img
                     src={principal.portrait}
                     alt={principal.name}
                     className="w-full h-full object-cover"
+                    decoding="async"
                   />
                 </div>
                 <figcaption className="mt-6">
@@ -163,7 +164,7 @@ export default function PrincipalMessage() {
           {/* Bottom editorial CTA strip */}
           <div
             className="mt-20 grid md:grid-cols-2 gap-8 bg-charcoal text-ivory overflow-hidden"
-            style={{ boxShadow: '0 20px 50px -20px rgba(31, 41, 36, 0.3)' }}
+            style={{ boxShadow: '0 20px 50px -20px rgba(23, 54, 83, 0.3)' }}
           >
             <div className="p-10 md:p-12 flex flex-col justify-center">
               <div className="flex items-center gap-2 text-[11px] tracking-editorial uppercase text-wheat mb-5">

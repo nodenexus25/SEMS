@@ -58,7 +58,7 @@ function CountUpValue({ item, animate }: { item: StatsItem; animate: boolean }) 
       <div className="font-serif text-4xl md:text-5xl lg:text-6xl leading-none text-forest-deep mb-2">
         {item.prefix}
         {displayValue}
-        <span className="text-terracotta">{item.suffix ?? ''}</span>
+        <span className="text-coral">{item.suffix ?? ''}</span>
       </div>
       <div className="text-[11px] md:text-xs uppercase tracking-editorial text-charcoal-soft/70 font-medium leading-snug max-w-[140px]">
         {item.label}
@@ -99,10 +99,10 @@ export default function StatsBand({ tabs }: StatsBandProps) {
                 key={tab.id}
                 type="button"
                 onClick={() => setSelectedIndex(i)}
-                className={`relative px-5 md:px-7 py-2.5 md:py-3 text-xs md:text-sm uppercase tracking-editorial font-semibold transition-all duration-450 ease-cinematic ${
+                className={`relative px-5 md:px-7 py-2.5 md:py-3 rounded-full text-xs md:text-sm uppercase tracking-editorial font-semibold transition-all duration-450 ease-cinematic ${
                   isActive
-                    ? 'bg-forest text-ivory shadow-editorial'
-                    : 'bg-ivory text-charcoal-soft/70 border border-wheat hover:text-charcoal hover:border-sage-light'
+                    ? 'bg-gradient-to-r from-forest to-forest-deep text-ivory shadow-soft'
+                    : 'bg-ivory text-charcoal-soft/70 border border-wheat hover:text-charcoal hover:border-sunflower hover:shadow-soft'
                 }`}
               >
                 {tab.label}

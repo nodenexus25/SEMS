@@ -160,7 +160,7 @@ export default function About() {
             </div>
             <div className="md:col-span-5">
               <figure className="relative">
-                <div className="aspect-[4/5] overflow-hidden bg-cream border border-wheat/50" style={{ boxShadow: '0 20px 50px -20px rgba(31, 41, 36, 0.2)' }}>
+                <div className="aspect-[4/5] overflow-hidden bg-cream border border-wheat/50" style={{ boxShadow: '0 20px 50px -20px rgba(23, 54, 83, 0.2)' }}>
                   <img
                     src={img('Editorial vertical portrait — the old banyan tree in an Indian rural school courtyard, children sitting beneath it reading books, warm dappled afternoon light, terracotta rooftops peeking through leaves, Kopargaon Maharashtra school aesthetic, no text or logos', 'portrait_4_3')}
                     alt="The original banyan courtyard at Sanjivani"
@@ -179,7 +179,7 @@ export default function About() {
           <div className="mt-24 md:mt-32 grid md:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="md:col-span-5 md:order-1">
               <figure className="relative">
-                <div className="aspect-[4/5] overflow-hidden bg-cream border border-wheat/50" style={{ boxShadow: '0 20px 50px -20px rgba(31, 41, 36, 0.2)' }}>
+                <div className="aspect-[4/5] overflow-hidden bg-cream border border-wheat/50" style={{ boxShadow: '0 20px 50px -20px rgba(23, 54, 83, 0.2)' }}>
                   <img
                     src={img('Editorial vertical photo — wide view of rural Maharashtra Godavari riverbank at golden hour, stone ghat steps, school children in uniform collecting plastic waste for cleanliness drive, ancient banyan trees, warm amber light, no logos, documentary style', 'portrait_4_3')}
                     alt="Godavari Harit Seva on the banks of the river"
@@ -329,7 +329,7 @@ export default function About() {
                 <article
                   key={c.id}
                   className="bg-ivory border border-wheat/60 p-7 card-hover group"
-                  style={{ boxShadow: '0 1px 2px rgba(31, 41, 36, 0.06)' }}
+                  style={{ boxShadow: '0 1px 2px rgba(23, 54, 83, 0.06)' }}
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-9 h-9 rounded-full bg-terracotta/10 text-terracotta flex items-center justify-center font-serif text-base font-bold group-hover:bg-terracotta group-hover:text-ivory transition-colors duration-450 ease-cinematic">
@@ -374,17 +374,17 @@ export default function About() {
       <section id="emblem" className="py-24 scroll-mt-20">
         <div className="container-editorial grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
           <div className="md:col-span-5">
-            <div className="aspect-square w-full max-w-md mx-auto bg-cream border border-wheat/60 flex items-center justify-center relative overflow-hidden" style={{ boxShadow: '0 20px 50px -20px rgba(31, 41, 36, 0.2)' }}>
+            <div className="aspect-square w-full max-w-md mx-auto bg-cream border border-wheat/60 flex items-center justify-center relative overflow-hidden" style={{ boxShadow: '0 20px 50px -20px rgba(23, 54, 83, 0.2)' }}>
               <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" className="w-[85%] h-[85%]">
                 <defs>
                   <circle id="emblem-circle" cx="150" cy="150" r="140" />
                   <linearGradient id="horizon-grad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#F8F7F2" />
-                    <stop offset="100%" stopColor="#E4D9B8" />
+                    <stop offset="0%" stopColor="#FFFFFF" />
+                    <stop offset="100%" stopColor="#DCEEFF" />
                   </linearGradient>
                   <linearGradient id="lamp-flame" x1="0" y1="1" x2="0" y2="0">
-                    <stop offset="0%" stopColor="#B6583C" />
-                    <stop offset="100%" stopColor="#D48871" />
+                    <stop offset="0%" stopColor="#B72D3E" />
+                    <stop offset="100%" stopColor="#C45A6A" />
                   </linearGradient>
                 </defs>
 
@@ -396,12 +396,12 @@ export default function About() {
 
                 {/* Horizon line (farmer's horizon) */}
                 <g clipPath="url(#emblem-clip)">
-                  <line x1="10" y1="195" x2="290" y2="195" stroke="#7A8B6F" strokeWidth="1.5" strokeDasharray="3 4" opacity="0.6" />
-                  <line x1="10" y1="205" x2="290" y2="205" stroke="#B6583C" strokeWidth="1" opacity="0.4" />
+                  <line x1="10" y1="195" x2="290" y2="195" stroke="#75A92C" strokeWidth="1.5" strokeDasharray="3 4" opacity="0.6" />
+                  <line x1="10" y1="205" x2="290" y2="205" stroke="#B72D3E" strokeWidth="1" opacity="0.4" />
                 </g>
 
                 {/* Godavari wave */}
-                <g clipPath="url(#emblem-clip)" fill="none" stroke="#4A7B55" strokeWidth="2.5" strokeLinecap="round">
+                <g clipPath="url(#emblem-clip)" fill="none" stroke="#5A8FC0" strokeWidth="2.5" strokeLinecap="round">
                   <path d="M 10 225 Q 45 215, 80 225 T 150 225 T 220 225 T 290 225" />
                   <path d="M 10 238 Q 45 228, 80 238 T 150 238 T 220 238 T 290 238" opacity="0.6" />
                   <path d="M 10 250 Q 45 242, 80 250 T 150 250 T 220 250 T 290 250" opacity="0.35" />
@@ -409,12 +409,12 @@ export default function About() {
 
                 {/* Banyan tree */}
                 <g clipPath="url(#emblem-clip)" transform="translate(62, 120)">
-                  <path d="M 0 75 Q -2 55, 3 40 L -6 75 Z" fill="#2F5233" opacity="0.85" />
-                  <path d="M 14 75 Q 12 58, 14 42 L 22 75 Z" fill="#2F5233" opacity="0.7" />
-                  <ellipse cx="8" cy="30" rx="26" ry="18" fill="#4A7B55" />
-                  <ellipse cx="-8" cy="22" rx="16" ry="12" fill="#2F5233" />
-                  <ellipse cx="24" cy="20" rx="14" ry="10" fill="#2F5233" opacity="0.85" />
-                  <ellipse cx="10" cy="14" rx="12" ry="8" fill="#4A7B55" opacity="0.8" />
+                  <path d="M 0 75 Q -2 55, 3 40 L -6 75 Z" fill="#2367A5" opacity="0.85" />
+                  <path d="M 14 75 Q 12 58, 14 42 L 22 75 Z" fill="#2367A5" opacity="0.7" />
+                  <ellipse cx="8" cy="30" rx="26" ry="18" fill="#5A8FC0" />
+                  <ellipse cx="-8" cy="22" rx="16" ry="12" fill="#2367A5" />
+                  <ellipse cx="24" cy="20" rx="14" ry="10" fill="#2367A5" opacity="0.85" />
+                  <ellipse cx="10" cy="14" rx="12" ry="8" fill="#5A8FC0" opacity="0.8" />
                   <line x1="-4" y1="40" x2="-10" y2="72" stroke="#213B25" strokeWidth="1.2" opacity="0.4" />
                   <line x1="18" y1="42" x2="26" y2="72" stroke="#213B25" strokeWidth="1.2" opacity="0.4" />
                 </g>
@@ -423,44 +423,44 @@ export default function About() {
                 <g clipPath="url(#emblem-clip)" transform="translate(198, 135)">
                   <path
                     d="M 25 70 Q 5 65, -2 35 Q 0 18, 10 15 Q 12 28, 14 35 Q 14 10, 25 8 Q 30 28, 30 35 Q 33 10, 43 12 Q 47 28, 45 38 Q 55 20, 62 28 Q 60 50, 50 62 Q 40 72, 25 70 Z"
-                    fill="#B6583C"
+                    fill="#B72D3E"
                     opacity="0.82"
                   />
-                  <path d="M 18 58 Q 30 62, 42 58" fill="none" stroke="#F8F7F2" strokeWidth="1.2" opacity="0.55" />
-                  <path d="M 22 48 L 26 52" stroke="#F8F7F2" strokeWidth="0.8" opacity="0.4" />
-                  <path d="M 34 49 L 38 53" stroke="#F8F7F2" strokeWidth="0.8" opacity="0.4" />
+                  <path d="M 18 58 Q 30 62, 42 58" fill="none" stroke="#FFFFFF" strokeWidth="1.2" opacity="0.55" />
+                  <path d="M 22 48 L 26 52" stroke="#FFFFFF" strokeWidth="0.8" opacity="0.4" />
+                  <path d="M 34 49 L 38 53" stroke="#FFFFFF" strokeWidth="0.8" opacity="0.4" />
                 </g>
 
                 {/* Lamp (vidya) — central */}
                 <g clipPath="url(#emblem-clip)" transform="translate(150, 90)">
                   <path d="M 0 -35 Q 10 -22, 8 -8 Q 18 -4, 18 6 L -18 6 Q -18 -4, -8 -8 Q -10 -22, 0 -35 Z" fill="url(#lamp-flame)" />
-                  <path d="M -2 -10 Q 0 -28, 3 -10 Q 2 -4, -2 -4 Z" fill="#F8F7F2" opacity="0.7" />
-                  <rect x="-20" y="6" width="40" height="6" rx="1.5" fill="#2F5233" />
-                  <rect x="-12" y="12" width="24" height="4" rx="1" fill="#B6583C" />
+                  <path d="M -2 -10 Q 0 -28, 3 -10 Q 2 -4, -2 -4 Z" fill="#FFFFFF" opacity="0.7" />
+                  <rect x="-20" y="6" width="40" height="6" rx="1.5" fill="#2367A5" />
+                  <rect x="-12" y="12" width="24" height="4" rx="1" fill="#B72D3E" />
                   <path d="M -6 16 L 6 16 L 4 26 L -4 26 Z" fill="#213B25" />
-                  <ellipse cx="0" cy="28" rx="14" ry="3" fill="#1F2924" opacity="0.75" />
+                  <ellipse cx="0" cy="28" rx="14" ry="3" fill="#173653" opacity="0.75" />
                 </g>
 
                 {/* Outer ring */}
-                <circle cx="150" cy="150" r="136" fill="none" stroke="#2F5233" strokeWidth="2" opacity="0.7" />
-                <circle cx="150" cy="150" r="130" fill="none" stroke="#B6583C" strokeWidth="0.8" strokeDasharray="2 3" opacity="0.5" />
+                <circle cx="150" cy="150" r="136" fill="none" stroke="#2367A5" strokeWidth="2" opacity="0.7" />
+                <circle cx="150" cy="150" r="130" fill="none" stroke="#B72D3E" strokeWidth="0.8" strokeDasharray="2 3" opacity="0.5" />
 
                 {/* Top text arc — SEMS monogram */}
-                <g fontFamily="'Playfair Display', Georgia, serif" fontWeight="600" fill="#1F2924">
-                  <text x="150" y="72" textAnchor="middle" fontSize="14" letterSpacing="4" fill="#2F5233">
+                <g fontFamily="'Poppins', sans-serif" fontWeight="600" fill="#173653">
+                  <text x="150" y="72" textAnchor="middle" fontSize="14" letterSpacing="4" fill="#2367A5">
                     · SANJIVANI ·
                   </text>
-                  <text x="150" y="282" textAnchor="middle" fontSize="11" letterSpacing="3" fill="#B6583C" opacity="0.85">
+                  <text x="150" y="282" textAnchor="middle" fontSize="11" letterSpacing="3" fill="#B72D3E" opacity="0.85">
                     EST. 1978
                   </text>
-                  <text x="150" y="60" textAnchor="middle" fontSize="7" letterSpacing="2.4" fill="#7A8B6F" opacity="0.9">
+                  <text x="150" y="60" textAnchor="middle" fontSize="7" letterSpacing="2.4" fill="#75A92C" opacity="0.9">
                     ◦ VIDYA · DANAM · SEVA ◦
                   </text>
                 </g>
 
                 {/* Bottom monogram S */}
-                <circle cx="150" cy="262" r="10" fill="#2F5233" />
-                <text x="150" y="266.5" textAnchor="middle" fill="#F8F7F2" fontFamily="'Playfair Display', Georgia, serif" fontStyle="italic" fontSize="13" fontWeight="700">S</text>
+                <circle cx="150" cy="262" r="10" fill="#2367A5" />
+                <text x="150" y="266.5" textAnchor="middle" fill="#FFFFFF" fontFamily="'Poppins', sans-serif" fontStyle="italic" fontSize="13" fontWeight="700">S</text>
               </svg>
             </div>
           </div>
@@ -573,19 +573,19 @@ export default function About() {
           <div className="mt-16 grid md:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Map */}
             <div className="md:col-span-7">
-              <div className="relative aspect-[16/10] bg-ivory border border-wheat/60 overflow-hidden" style={{ boxShadow: '0 20px 50px -20px rgba(31, 41, 36, 0.2)' }}>
+              <div className="relative aspect-[16/10] bg-ivory border border-wheat/60 overflow-hidden" style={{ boxShadow: '0 20px 50px -20px rgba(23, 54, 83, 0.2)' }}>
                 <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
                   <rect width="800" height="500" fill="#FBF9F4" />
 
                   {/* Terrain patches */}
-                  <path d="M 0 380 Q 150 340, 320 360 T 620 350 T 800 370 L 800 500 L 0 500 Z" fill="#E4D9B8" opacity="0.55" />
-                  <path d="M 0 420 Q 180 395, 380 405 T 700 400 T 800 410 L 800 500 L 0 500 Z" fill="#B8C2AE" opacity="0.4" />
+                  <path d="M 0 380 Q 150 340, 320 360 T 620 350 T 800 370 L 800 500 L 0 500 Z" fill="#DCEEFF" opacity="0.55" />
+                  <path d="M 0 420 Q 180 395, 380 405 T 700 400 T 800 410 L 800 500 L 0 500 Z" fill="#A8C96B" opacity="0.4" />
 
                   {/* Godavari river */}
                   <path
                     d="M -20 260 Q 120 240, 230 268 T 420 265 Q 520 270, 610 248 T 820 260"
                     fill="none"
-                    stroke="#4A7B55"
+                    stroke="#5A8FC0"
                     strokeWidth="28"
                     strokeLinecap="round"
                     opacity="0.28"
@@ -593,70 +593,70 @@ export default function About() {
                   <path
                     d="M -20 260 Q 120 240, 230 268 T 420 265 Q 520 270, 610 248 T 820 260"
                     fill="none"
-                    stroke="#7A8B6F"
+                    stroke="#75A92C"
                     strokeWidth="10"
                     strokeLinecap="round"
                     opacity="0.45"
                   />
 
                   {/* Roads */}
-                  <path d="M 50 480 L 760 40" stroke="#2E3B34" strokeWidth="1" strokeDasharray="5 6" opacity="0.18" />
-                  <path d="M 760 460 L 80 100" stroke="#2E3B34" strokeWidth="1" strokeDasharray="5 6" opacity="0.14" />
+                  <path d="M 50 480 L 760 40" stroke="#45566A" strokeWidth="1" strokeDasharray="5 6" opacity="0.18" />
+                  <path d="M 760 460 L 80 100" stroke="#45566A" strokeWidth="1" strokeDasharray="5 6" opacity="0.14" />
 
                   {/* Village patches */}
                   {[[120, 180, 80], [260, 380, 60], [620, 120, 90], [560, 420, 70], [60, 320, 50]].map(([cx, cy, r], i) => (
                     <g key={i}>
-                      <circle cx={cx} cy={cy} r={r} fill="#B8C2AE" opacity="0.3" />
-                      <circle cx={cx - r * 0.25} cy={cy - r * 0.2} r="4" fill="#7A8B6F" opacity="0.5" />
-                      <circle cx={cx + r * 0.3} cy={cy + r * 0.15} r="3" fill="#7A8B6F" opacity="0.5" />
+                      <circle cx={cx} cy={cy} r={r} fill="#A8C96B" opacity="0.3" />
+                      <circle cx={cx - r * 0.25} cy={cy - r * 0.2} r="4" fill="#75A92C" opacity="0.5" />
+                      <circle cx={cx + r * 0.3} cy={cy + r * 0.15} r="3" fill="#75A92C" opacity="0.5" />
                     </g>
                   ))}
 
                   {/* Kopargaon Pin */}
                   <g transform="translate(400, 230)">
-                    <circle r="26" fill="#B6583C" opacity="0.18">
+                    <circle r="26" fill="#B72D3E" opacity="0.18">
                       <animate attributeName="r" values="22;34;22" dur="2.6s" repeatCount="indefinite" />
                       <animate attributeName="opacity" values="0.22;0;0.22" dur="2.6s" repeatCount="indefinite" />
                     </circle>
-                    <circle r="14" fill="#F8F7F2" stroke="#B6583C" strokeWidth="2" />
+                    <circle r="14" fill="#FFFFFF" stroke="#B72D3E" strokeWidth="2" />
                     <path
                       d="M 0 -36 C -12 -52, -34 -42, -34 -24 C -34 -6, 0 18, 0 18 C 0 18, 34 -6, 34 -24 C 34 -42, 12 -52, 0 -36 Z"
-                      fill="#B6583C"
+                      fill="#B72D3E"
                       stroke="#213B25"
                       strokeWidth="1.2"
                     />
-                    <circle cy="-26" r="6" fill="#F8F7F2" />
-                    <text y="-22" textAnchor="middle" fontFamily="'Playfair Display', Georgia, serif" fontSize="9" fontWeight="700" fill="#2F5233" fontStyle="italic">S</text>
+                    <circle cy="-26" r="6" fill="#FFFFFF" />
+                    <text y="-22" textAnchor="middle" fontFamily="'Poppins', sans-serif" fontSize="9" fontWeight="700" fill="#2367A5" fontStyle="italic">S</text>
                   </g>
 
                   {/* Labels */}
-                  <g fontFamily="'Inter', sans-serif" fill="#1F2924">
-                    <text x="400" y="300" textAnchor="middle" fontSize="15" fontWeight="600" fill="#B6583C">
+                  <g fontFamily="'Inter', sans-serif" fill="#173653">
+                    <text x="400" y="300" textAnchor="middle" fontSize="15" fontWeight="600" fill="#B72D3E">
                       Kopargaon
                     </text>
-                    <text x="400" y="318" textAnchor="middle" fontSize="10" letterSpacing="2" fill="#7A8B6F" opacity="0.95">
+                    <text x="400" y="318" textAnchor="middle" fontSize="10" letterSpacing="2" fill="#75A92C" opacity="0.95">
                       · GODAVARI GHAT · MAIN CAMPUS ·
                     </text>
-                    <text x="80" y="248" fontSize="11" letterSpacing="1.5" fill="#4A7B55" opacity="0.85">
+                    <text x="80" y="248" fontSize="11" letterSpacing="1.5" fill="#5A8FC0" opacity="0.85">
                       Godavari River
                     </text>
                     <g>
-                      <line x1="600" y1="230" x2="520" y2="230" stroke="#1F2924" strokeWidth="0.6" opacity="0.3" />
-                      <text x="604" y="234" fontSize="10" letterSpacing="1.4" fill="#7A8B6F" opacity="0.95">
+                      <line x1="600" y1="230" x2="520" y2="230" stroke="#173653" strokeWidth="0.6" opacity="0.3" />
+                      <text x="604" y="234" fontSize="10" letterSpacing="1.4" fill="#75A92C" opacity="0.95">
                         AHMEDNAGAR ← 78 KM
                       </text>
                     </g>
                     <g>
-                      <line x1="200" y1="230" x2="280" y2="230" stroke="#1F2924" strokeWidth="0.6" opacity="0.3" />
-                      <text x="76" y="234" fontSize="10" letterSpacing="1.4" fill="#7A8B6F" opacity="0.95" textAnchor="start">
+                      <line x1="200" y1="230" x2="280" y2="230" stroke="#173653" strokeWidth="0.6" opacity="0.3" />
+                      <text x="76" y="234" fontSize="10" letterSpacing="1.4" fill="#75A92C" opacity="0.95" textAnchor="start">
                         NASHIK → 92 KM
                       </text>
                     </g>
                   </g>
 
                   {/* Frame */}
-                  <rect x="0.5" y="0.5" width="799" height="499" fill="none" stroke="#2F5233" strokeWidth="0.6" opacity="0.3" />
-                  <rect x="14" y="14" width="772" height="472" fill="none" stroke="#E4D9B8" strokeWidth="0.8" opacity="0.7" />
+                  <rect x="0.5" y="0.5" width="799" height="499" fill="none" stroke="#2367A5" strokeWidth="0.6" opacity="0.3" />
+                  <rect x="14" y="14" width="772" height="472" fill="none" stroke="#DCEEFF" strokeWidth="0.8" opacity="0.7" />
                 </svg>
               </div>
               <p className="mt-4 text-xs tracking-editorial uppercase text-sage flex items-center gap-2">
@@ -674,7 +674,7 @@ export default function About() {
                   <article
                     key={gs.id}
                     className="bg-ivory border border-wheat/60 p-6 card-hover"
-                    style={{ boxShadow: '0 1px 2px rgba(31, 41, 36, 0.06)' }}
+                    style={{ boxShadow: '0 1px 2px rgba(23, 54, 83, 0.06)' }}
                   >
                     <div className="flex items-start gap-4">
                       <div className="w-11 h-11 rounded-sm bg-forest/10 text-forest flex items-center justify-center shrink-0">
@@ -704,7 +704,7 @@ export default function About() {
           </div>
 
           {/* CTA strip */}
-          <div className="mt-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 bg-forest text-ivory p-8 md:p-10 border border-forest-deep" style={{ boxShadow: '0 20px 50px -20px rgba(47, 82, 51, 0.35)' }}>
+          <div className="mt-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 bg-forest text-ivory p-8 md:p-10 border border-forest-deep" style={{ boxShadow: '0 20px 50px -20px rgba(35, 103, 165, 0.35)' }}>
             <div>
               <p className="font-serif text-2xl md:text-3xl leading-tight">
                 Want to walk the campus with us?

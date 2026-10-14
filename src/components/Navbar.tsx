@@ -14,47 +14,47 @@ const buildMegaMenuGroups = (): MegaMenuGroup[] => {
   const admission = base.find((g) => g.id === 'ql4')!
   const more = base.find((g) => g.id === 'ql5')!
 
-  // Co-curricular, Happenings & Contact stay visible in the navbar but their
-  // links are intentionally unlinked (href "#") for now.
+  // Temporarily unlinked: all link hrefs mapped to '#' so the items stay visible
+  // in the navbar but do not navigate. Revert the .map() to re-enable.
+  const unlink = (links: { id: string; label: string; href: string }[]) =>
+    links.map((l) => ({ ...l, href: '#' }))
+
   const cocurricular: MegaMenuGroup = {
     id: 'cocurricular',
     title: 'Co-curricular',
-    links: more.links
-      .filter((l) => l.id === 'q51')
-      .map((l) => ({ ...l, href: '#' }))
-      .concat([
-        { id: 'cc-1', label: 'Sports & Athletics', href: '#' },
-        { id: 'cc-2', label: 'NCC & Scouts', href: '#' },
-        { id: 'cc-3', label: 'Godavari Harit Sena', href: '#' },
-        { id: 'cc-4', label: 'Clubs & Societies', href: '#' },
-        { id: 'cc-5', label: 'Cultural Calendar', href: '#' },
+    links: unlink(
+      more.links.filter((l) => l.id === 'q51').concat([
+        { id: 'cc-1', label: 'Sports & Athletics', href: '/academics#co-curricular' },
+        { id: 'cc-2', label: 'NCC & Scouts', href: '/academics#co-curricular' },
+        { id: 'cc-3', label: 'Godavari Harit Sena', href: '/academics#co-curricular' },
+        { id: 'cc-4', label: 'Clubs & Societies', href: '/academics#co-curricular' },
+        { id: 'cc-5', label: 'Cultural Calendar', href: '/happenings' },
       ]),
+    ),
   }
 
   const happenings: MegaMenuGroup = {
     id: 'happenings',
     title: 'Happenings',
-    links: school.links
-      .filter((l) => l.id === 'q26')
-      .map((l) => ({ ...l, href: '#' }))
-      .concat([
-        { id: 'hap-1', label: 'Latest News', href: '#' },
-        { id: 'hap-2', label: 'Events Calendar', href: '#' },
+    links: unlink(
+      school.links.filter((l) => l.id === 'q26').concat([
+        { id: 'hap-1', label: 'Latest News', href: '/happenings' },
+        { id: 'hap-2', label: 'Events Calendar', href: '/happenings' },
         { id: 'hap-3', label: 'Gallery', href: '/gallery' },
-        { id: 'hap-4', label: 'Annual Day', href: '#' },
+        { id: 'hap-4', label: 'Annual Day', href: '/happenings' },
       ]),
+    ),
   }
 
   const contact: MegaMenuGroup = {
     id: 'contact',
     title: 'Contact',
-    links: more.links
-      .filter((l) => ['q53', 'q54', 'q55'].includes(l.id))
-      .map((l) => ({ ...l, href: '#' }))
-      .concat([
-        { id: 'cnt-1', label: 'Reach Us', href: '#' },
-        { id: 'cnt-2', label: 'Campus Map', href: '#' },
+    links: unlink(
+      more.links.filter((l) => ['q53', 'q54', 'q55'].includes(l.id)).concat([
+        { id: 'cnt-1', label: 'Reach Us', href: '/contact' },
+        { id: 'cnt-2', label: 'Campus Map', href: '/contact' },
       ]),
+    ),
   }
 
   return [about, school, admission, cocurricular, happenings, contact]
@@ -68,38 +68,33 @@ function Navbar() {
   const megaGroups = useMemo(buildMegaMenuGroups, [])
 
   const isElevated = scrollY >= 40
-  const isScrolledDeep = scrollY > 180
 
   const closeDrawer = () => setDrawerOpen(false)
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 h-[67px] transition-all duration-450 ease-cinematic ${
-          isElevated
-            ? 'glass-ivory shadow-editorial border-b border-wheat/40'
-            : 'bg-transparent shadow-none'
-        } ${isScrolledDeep ? 'translate-y-0' : 'translate-y-0'}`}
+        className={`fixed top-0 left-0 right-0 z-50 h-[67px] transition-all duration-450 ease-cinematic bg-ivory/95 backdrop-blur-md border-b border-wheat/40 ${
+          isElevated ? 'shadow-soft' : 'shadow-none'
+        }`}
       >
-        <div
-          className={`absolute inset-x-0 bottom-0 h-px pointer-events-none transition-opacity duration-500 ${
-            isElevated ? 'opacity-100' : 'opacity-0'
-          } hairline-rule`}
-        />
         <div className="container-editorial h-full flex items-center justify-between relative">
-          <Link to="/" className="group flex items-center gap-3 h-full">
-            <div className="h-[54px] w-[54px] relative rounded-sm overflow-hidden flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-forest via-forest-deep to-charcoal transition-transform duration-600 ease-cinematic group-hover:scale-105" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(228,217,184,0.25),transparent_55%)]" />
-              <span className="relative text-ivory font-serif italic text-[28px] drop-shadow-[0_1px_0_rgba(0,0,0,0.18)]">
-                S
-              </span>
+          <Link to="/" className="group flex items-center gap-3 h-full" aria-label="Sanjivani English Medium School — home">
+            <div className="h-[54px] w-[54px] relative rounded-full overflow-hidden flex items-center justify-center ring-1 ring-wheat/40 bg-white transition-transform duration-600 ease-cinematic group-hover:scale-105">
+              <img
+                src="/ses logo.jpeg"
+                alt="Sanjivani English Medium School emblem"
+                className="w-full h-full object-cover"
+                width={54}
+                height={54}
+                decoding="async"
+              />
             </div>
             <div className="leading-tight transition-transform duration-450 ease-cinematic group-hover:-translate-y-0.5">
               <p className="font-serif text-[19px] tracking-tight text-charcoal">
                 {schoolData.shortName}
               </p>
-              <p className="text-[10px] tracking-[0.22em] uppercase text-terracotta">
+              <p className="text-[10px] tracking-[0.22em] uppercase text-coral font-medium">
                 {schoolData.tagline}
               </p>
             </div>
@@ -116,15 +111,15 @@ function Navbar() {
                 >
                   <button
                     type="button"
-                    className="h-full px-3 flex items-center gap-1.5 text-[11px] tracking-[0.2em] uppercase text-charcoal/80 hover:text-terracotta transition-colors duration-300 ease-cinematic group"
+                    className="h-full px-3 flex items-center gap-1.5 text-[11px] tracking-[0.2em] uppercase text-charcoal/80 hover:text-coral transition-colors duration-300 ease-cinematic group"
                   >
                     <span className="relative">
                       {group.title}
-                      <span className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 bg-terracotta/70 transition-transform duration-450 ease-cinematic group-hover:scale-x-100" />
+                      <span className="absolute -bottom-0.5 left-0 h-0.5 w-full origin-left scale-x-0 bg-gradient-to-r from-coral via-sunflower to-sky transition-transform duration-450 ease-cinematic group-hover:scale-x-100 rounded-full" />
                     </span>
                     <ChevronDown
                       className={`w-3 h-3 opacity-60 transition-transform duration-450 ease-cinematic ${
-                        openGroup === group.id ? 'rotate-180 text-terracotta' : ''
+                        openGroup === group.id ? 'rotate-180 text-coral' : ''
                       }`}
                     />
                   </button>
@@ -136,9 +131,9 @@ function Navbar() {
                         : 'opacity-0 translate-y-2.5 blur-md pointer-events-none'
                     }`}
                   >
-                    <div className="glass-ivory shadow-editorial rounded-sm p-4 relative overflow-hidden">
-                      <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-terracotta/6 blur-2xl pointer-events-none" />
-                      <p className="relative text-[10px] tracking-[0.22em] uppercase text-terracotta mb-3">
+                    <div className="glass-ivory shadow-editorial rounded-2xl p-4 relative overflow-hidden">
+                      <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-coral/10 blur-2xl pointer-events-none" />
+                      <p className="relative text-[10px] tracking-[0.22em] uppercase text-coral mb-3 font-semibold">
                         {group.title}
                       </p>
                       <ul className="relative space-y-0.5">
@@ -146,11 +141,14 @@ function Navbar() {
                           <li key={link.id}>
                             <Link
                               to={link.href}
-                              className="group/link block px-3 py-2.5 text-sm text-charcoal-soft/90 rounded-sm transition-all duration-450 ease-cinematic relative overflow-hidden"
-                              onClick={() => setOpenGroup(null)}
+                              className="group/link block px-3 py-2.5 text-sm text-charcoal-soft/90 rounded-lg transition-all duration-450 ease-cinematic relative overflow-hidden hover:bg-sunflower/10"
+                              onClick={(e) => {
+                                if (link.href === '#') e.preventDefault()
+                                setOpenGroup(null)
+                              }}
                             >
-                              <span className="absolute inset-y-0 left-0 w-0 bg-terracotta/90 transition-all duration-450 ease-cinematic group-hover/link:w-[3px]" />
-                              <span className="relative pl-0 group-hover/link:pl-2 transition-all duration-450 ease-cinematic group-hover/link:text-terracotta">
+                              <span className="absolute inset-y-0 left-0 w-0 bg-gradient-to-b from-coral to-sunflower transition-all duration-450 ease-cinematic group-hover/link:w-[3px] rounded-r" />
+                              <span className="relative pl-0 group-hover/link:pl-2 transition-all duration-450 ease-cinematic group-hover/link:text-coral font-medium">
                                 {link.label}
                               </span>
                             </Link>
@@ -165,13 +163,13 @@ function Navbar() {
 
             <NavLink
               to="/admission"
-              className="group/adbtn !rounded-full btn-primary !py-2.5 !px-5 text-[11px] ml-5 shadow-editorial"
+              className="group/adbtn !rounded-full !bg-saffron hover:!bg-saffron-soft text-ivory px-5 py-2.5 text-[11px] ml-5 shadow-soft inline-flex items-center gap-1.5 font-medium tracking-editorial uppercase transition-all duration-450 ease-cinematic hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron"
             >
               <span className="relative z-10 flex items-center gap-1.5">
                 <GraduationCap className="w-3.5 h-3.5" />
                 Enquire
               </span>
-              <Sparkles className="w-3 h-3 text-wheat/90 opacity-80 ml-0.5" />
+              <Sparkles className="w-3 h-3 text-ivory/80 opacity-80 ml-0.5" />
             </NavLink>
           </nav>
 
@@ -200,8 +198,15 @@ function Navbar() {
       >
               <div className="h-[67px] px-5 flex items-center justify-between border-b border-wheat/40">
                 <Link to="/" onClick={closeDrawer} className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-sm bg-forest flex items-center justify-center text-ivory font-serif italic text-lg shadow-soft">
-                    S
+                  <div className="h-10 w-10 rounded-full overflow-hidden ring-1 ring-wheat/50 bg-white flex-shrink-0">
+                    <img
+                      src="/ses logo.jpeg"
+                      alt="Sanjivani English Medium School emblem"
+                      className="w-full h-full object-cover"
+                      width={40}
+                      height={40}
+                      decoding="async"
+                    />
                   </div>
                   <div className="leading-tight">
                     <p className="font-serif text-lg tracking-tight text-charcoal">
@@ -234,7 +239,10 @@ function Navbar() {
                           <li key={link.id}>
                             <NavLink
                               to={link.href}
-                              onClick={closeDrawer}
+                              onClick={(e) => {
+                                if (link.href === '#') e.preventDefault()
+                                closeDrawer()
+                              }}
                               className={({ isActive }) =>
                                 `block px-3 py-2.5 rounded-sm text-sm transition-colors duration-300 ease-cinematic ${
                                   isActive
@@ -257,7 +265,7 @@ function Navbar() {
                 <Link
                   to="/admission"
                   onClick={closeDrawer}
-                  className="btn-primary w-full !py-3 text-[11px]"
+                  className="w-full !py-3 text-[11px] bg-saffron hover:bg-saffron-soft text-ivory rounded-sm inline-flex items-center justify-center gap-2 font-medium tracking-editorial uppercase transition-all duration-450 ease-cinematic focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron"
                 >
                   <GraduationCap className="w-4 h-4" />
                   Admission Enquiry
