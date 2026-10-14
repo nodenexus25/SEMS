@@ -37,6 +37,7 @@ export interface CardGridProps {
   items: any[]
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onItemClick?: (i: any) => void
+  hideDescription?: boolean
 }
 
 const iconMap: Record<string, LucideIcon> = {
@@ -156,9 +157,11 @@ function ExploreCard({
 export function AccoladeCard({
   item,
   onClick,
+  hideDescription,
 }: {
   item: AccoladeItem
   onClick?: (i: AccoladeItem) => void
+  hideDescription?: boolean
 }) {
   const categoryColors: Record<string, string> = {
     Academic: 'bg-sky text-white',
@@ -194,12 +197,14 @@ export function AccoladeCard({
         </div>
       </div>
       <div className="p-5 flex flex-col gap-3">
-        <h3 className="font-serif text-xl leading-snug text-charcoal min-h-[56px]">
+        <h3 className="font-serif text-xl leading-snug text-charcoal">
           {item.title}
         </h3>
-        <p className="text-sm leading-relaxed text-charcoal-soft/80 min-h-[84px]">
-          {item.description}
-        </p>
+        {!hideDescription && (
+          <p className="text-sm leading-relaxed text-charcoal-soft/80">
+            {item.description}
+          </p>
+        )}
         {item.recipient && (
           <div className="flex items-center gap-2 pt-1 border-t border-wheat/50">
             <Award size={14} className="text-sunflower" />
@@ -373,6 +378,7 @@ export default function CardGrid({
   variant,
   items,
   onItemClick,
+  hideDescription,
 }: CardGridProps) {
   const gridCols = variantGridCols[variant]
 
@@ -394,6 +400,7 @@ export default function CardGrid({
             key={key}
             item={item}
             onClick={onItemClick as (i: AccoladeItem) => void}
+            hideDescription={hideDescription}
           />
         )
       case 'partner':

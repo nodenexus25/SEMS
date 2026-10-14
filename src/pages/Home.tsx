@@ -383,6 +383,7 @@ export default function Home() {
             variant="accolade"
             items={accoladesSample}
             onItemClick={() => navigate('/achievements')}
+            hideDescription
           />
 
           <div className="mt-12 md:mt-16 flex justify-center">

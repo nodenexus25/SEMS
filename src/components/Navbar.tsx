@@ -94,8 +94,8 @@ function Navbar() {
               <p className="font-serif text-[19px] tracking-tight text-charcoal">
                 {schoolData.shortName}
               </p>
-              <p className="text-[10px] tracking-[0.22em] uppercase text-coral font-medium">
-                {schoolData.tagline}
+              <p className="text-[12px] tracking-wide text-coral font-medium whitespace-nowrap">
+                {schoolData.name}
               </p>
             </div>
           </Link>
@@ -212,8 +212,8 @@ function Navbar() {
                     <p className="font-serif text-lg tracking-tight text-charcoal">
                       {schoolData.shortName}
                     </p>
-                    <p className="text-[9px] tracking-editorial uppercase text-terracotta">
-                      Est. {schoolData.establishedYear}
+                    <p className="text-[11px] tracking-wide text-terracotta whitespace-nowrap">
+                      {schoolData.name}
                     </p>
                   </div>
                 </Link>
